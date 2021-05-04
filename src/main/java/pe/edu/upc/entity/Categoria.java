@@ -17,7 +17,7 @@ public class Categoria implements Serializable {
 
 	//asdasda
 	//sadadads
-
+//ericito
 	//xd
 
 	private static final long serialVersionUID = 1L;
