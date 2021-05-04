@@ -1,0 +1,33 @@
+1. carpet bash git here
+2. git init
+3. git add <file.dad>
+4. git status
+5. git commit --> i: insert --> presionar escape --> :wq to send oooooo
+git commit -m "mensaje" y enter 
+6. git log --> ver todos los commit
+7. git checkout -- <file> para volverlo a como estaba antes de los cambios 
+8. git diff <file>
+9. para ignorar archivs q no quiero en mi git actual, crear archivo ".gitignore"
+y dentro escribir normal la carpeta o archivo a ignorar
+10. agregar .gitignore
+11. git branch -->  ver rmas
+12 git branch <name>
+13. camiar de staatus ..  git checkout <name>
+14. como agregar todos los archivos  ::    git add .
+
+PARA NUEVO REPOSITORIO:
+echo "# prueba1" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/JJT71/prueba1.git
+git push -u origin main
+
+PARA EXISTENTES:
+git remote add origin https://github.com/JJT71/prueba1.git
+git branch -M main
+git push -u origin main
+
+git remote set-url origin https://github.com/your/repository
+github/new --> para el repositorio a crear
