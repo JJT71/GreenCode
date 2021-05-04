@@ -13,12 +13,15 @@ import javax.persistence.Table;
 @Table(name="categoria")
 public class Categoria implements Serializable {
 	//nose hola
-
-
+	
 	//asdasda
 	//sadadads
 
 	//xd
+	
+	
+	//hola q tal
+	//idk
 
 	private static final long serialVersionUID = 1L;
 
