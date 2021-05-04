@@ -17,7 +17,7 @@ import pe.edu.upc.service.ICategoriaService;
 public class CategoriaController implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	//Lilyyyyyyyyyyyyyyyyy
+	
 	@Inject
 	private ICategoriaService mService;
 	
