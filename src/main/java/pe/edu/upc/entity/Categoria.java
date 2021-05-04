@@ -13,7 +13,11 @@ import javax.persistence.Table;
 @Table(name="categoria")
 public class Categoria implements Serializable {
 	//nose hola
+<<<<<<< HEAD
 	
+=======
+//nuevo trabajo
+>>>>>>> refs/remotes/origin/master
 	//asdasda
 	//sadadads
 	//ericito
