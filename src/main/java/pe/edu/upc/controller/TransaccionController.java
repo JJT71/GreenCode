@@ -1,5 +1,5 @@
 package pe.edu.upc.controller;
-
+//TERMINADO TRANSACCION CONTROLLER
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
