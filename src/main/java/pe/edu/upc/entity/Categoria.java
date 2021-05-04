@@ -16,9 +16,9 @@ public class Categoria implements Serializable {
 	
 	//asdasda
 	//sadadads
-//ericito
+	//ericito
 	//xd
-	
+	//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 	
 	//hola q tal
 	//idk
