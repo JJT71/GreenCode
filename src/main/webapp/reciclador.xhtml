@@ -93,12 +93,13 @@
 				value="#{recicladorController.reciclador.direccion}" maxlength="50"
 				required="true" />
 			<br />
-
-
-			<p:calendar id="empezar" effect="slide" required="true"
+			
+			<h:outputLabel value="Fecha de Nacimiento"
+				styleClass="control-label" /> <br />
+			<p:calendar id="fecha" effect="slide" required="true"
 				pattern="dd/MM/yyyy" value="#{recicladorController.reciclador.fechaNacimiento}"
 				title="Fecha de Nacimiento" />
-
+			<br />
 
 			<h:outputLabel for="calificacion" value="Calificacion"
 				styleClass="control-label" />
@@ -127,8 +128,16 @@
 				required="true" />
 			<br />
 
+			<p:outputLabel for="cboDistrito" value="Distrito" />
 
-
+			<p:selectOneMenu id="cboDistrito"
+				value="#{RecicladorController.reciclador.distrito}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{RecicladorController.listaDistritos}"
+					var="d" itemLabel="#{d.nombre}" itemValue="#{d}" />
+			</p:selectOneMenu>
+			<br />
+			
 			<p:commandButton value="Grabar"
 				actionListener="#{recicladorController.insertar()}"
 				styleClass="btn btn-primary " update="@form"
@@ -138,6 +147,7 @@
 				styleClass="btn btn-default" ajax="false" />
 
 			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
 
 		</h:form>
 	</ui:define>

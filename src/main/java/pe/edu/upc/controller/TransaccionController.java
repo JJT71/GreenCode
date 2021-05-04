@@ -1,7 +1,11 @@
 package pe.edu.upc.controller;
+<<<<<<< HEAD
 //TERMINADO TRANSACCION CONTROLLER
 //CONFIRMACION
 //
+=======
+
+>>>>>>> refs/remotes/origin/master
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
