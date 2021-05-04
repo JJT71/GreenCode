@@ -12,20 +12,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="categoria")
 public class Categoria implements Serializable {
-	//nose hola
-<<<<<<< HEAD
 	
-=======
-//nuevo trabajo
->>>>>>> refs/remotes/origin/master
-	//asdasda
-	//sadadads
-	//ericito
-	//xd
-	//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-	
-	//hola q tal
-	//idk
 
 	private static final long serialVersionUID = 1L;
 
