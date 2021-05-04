@@ -14,22 +14,22 @@ public class IPedidoServiceImpl implements IPedidoService,Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Inject
-	private IPedidoDao mD; 
+	private IPedidoDao pD; 
 	
 	@Override
 	public void insertar(Pedido pedido) {
-		mD.insertar(pedido);
+		pD.insertar(pedido);
 	}
 
 	@Override
 	public List<Pedido> listar() {
 		
-		return mD.listar();
+		return pD.listar();
 	}
 
 	@Override
 	public void eliminar(int idPedido) {
-		mD.eliminar(idPedido);	
+		pD.eliminar(idPedido);	
 	}
 
 }
