@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="categoria")
 public class Categoria implements Serializable {
-
+	//nose hola
 	private static final long serialVersionUID = 1L;
 
 	@Id
