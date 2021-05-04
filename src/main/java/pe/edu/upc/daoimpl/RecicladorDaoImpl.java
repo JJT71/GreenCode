@@ -35,6 +35,7 @@ public class RecicladorDaoImpl implements IRecicladorDao, Serializable {
 		return lista;
 	}
 
+	@Transactional
 	@Override
 	public void eliminar(int idReciclador) {
 		Reciclador r= new Reciclador();

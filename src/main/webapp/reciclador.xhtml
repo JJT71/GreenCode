@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de Recicladores:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Reciclador</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idReciclador" value="Id " styleClass="control-label" />
+			<p:inputText autocomplete="off" id="idReciclador"
+				styleClass="form-control" value="#{recicladorController.reciclador.idReciclador}"
+				required="true" />
+				
+			<h:outputLabel for="usuario" value="Usuario"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="usuario"
+				styleClass="form-control"
+				value="#{recicladorController.reciclador.usuario}" maxlength="30"
+				required="true" />
+			<br />
+			
+			<h:outputLabel for="contrasenia" value="Contraseña"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="contrasenia"
+				styleClass="form-control"
+				value="#{recicladorController.reciclador.contrasenia}" maxlength="60"
+				required="true" />
+			<br />
+			
+			<h:outputLabel  value="Nombre"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="nombre"
+				styleClass="form-control"
+				value="#{recicladorController.reciclador.nombre}" maxlength="20"
+				required="true" />
+			<br />
+			
+			<h:outputLabel for="apellido" value="Apellido"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="apellido"
+				styleClass="form-control"
+				value="#{recicladorController.reciclador.apellido}" maxlength="20"
+				required="true" />
+			<br />
+			
+			<h:outputLabel for="dni" value="DNI"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="dni"
+				styleClass="form-control"
+				value="#{recicladorController.reciclador.dni}" length="8"
+				required="true" />
+			<br />
+			
+				<h:outputLabel for="celular" value="Celular"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="celular"
+				styleClass="form-control"
+				value="#{recicladorController.reciclador.celular}" maxlength="9"
+				required="true" />
+			<br />
+			
+			<h:outputLabel for="email" value="Email"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="email"
+				styleClass="form-control"
+				value="#{recicladorController.reciclador.email}" maxlength="40"
+				required="true" />
+			<br />
+			
+			<h:outputLabel for="direccion" value="Direccion"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="direccion"
+				styleClass="form-control"
+				value="#{recicladorController.reciclador.direccion}" maxlength="50"
+				required="true" />
+			<br />
+
+
+			<p:calendar id="empezar" effect="slide" required="true"
+				pattern="dd/MM/yyyy" value="#{recicladorController.reciclador.fechaNacimiento}"
+				title="Fecha de Nacimiento" />
+
+
+			<h:outputLabel for="calificacion" value="Calificacion"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="calificacion"
+				styleClass="form-control"
+				value="#{recicladorController.reciclador.calificacion}" maxlength="2"
+				required="true" />
+			<br />
+			
+			<h:outputLabel for="puntaje" value="Puntaje"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="puntaje"
+				styleClass="form-control"
+				value="#{recicladorController.reciclador.puntaje}" maxlength="2"
+				required="true" />
+			<br />
+			
+			<h:outputLabel for="tipo" value="Tipo"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="tipo"
+				styleClass="form-control"
+				value="#{recicladorController.reciclador.tipo}" maxlength="15"
+				required="true" />
+			<br />
+
+
+
+			<p:commandButton value="Grabar"
+				actionListener="#{recicladorController.insertar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listReciclador?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listReciclador?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

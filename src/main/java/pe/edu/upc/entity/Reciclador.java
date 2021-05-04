@@ -25,7 +25,7 @@ public class Reciclador implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	
+	//COMO QUEDAMOS USUARIO Y CONTR Y CAMBIR A FALSE LOS NULLABLES
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int idReciclador;

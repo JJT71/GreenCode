@@ -33,7 +33,7 @@ public class CategoriaController implements Serializable {
 
 	public String nuevaCategoria() { //para crear una vista de categoria
 		this.setCategoria(new Categoria());
-		return "categoria.chtml";
+		return "categoria.xhtml";
 	}
 	
 	public void insertar() {

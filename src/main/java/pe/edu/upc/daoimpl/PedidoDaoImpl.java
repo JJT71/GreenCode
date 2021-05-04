@@ -34,6 +34,7 @@ public class PedidoDaoImpl implements IPedidoDao, Serializable{
 		return lista;
 	}
 
+	@Transactional
 	@Override
 	public void eliminar(int idPedido) {
 		Pedido p= new Pedido();

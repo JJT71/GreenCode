@@ -35,6 +35,7 @@ public class ResiduoDaoImpl implements IResiduoDao, Serializable {
 		return lista;
 	}
 
+	@Transactional
 	@Override
 	public void eliminar(int idResiduo) {
 		Residuo r= new Residuo();

@@ -34,7 +34,8 @@ public class CategoriaDaoImpl implements ICategoriaDao, Serializable {
 		lista=(List<Categoria>) q.getResultList();
 		return lista;
 	}
-
+	
+	@Transactional
 	@Override
 	public void eliminar(int idCategoria) {
 		Categoria c= new Categoria();

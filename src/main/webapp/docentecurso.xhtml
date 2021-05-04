@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Asignacion de Cursos a Docentes:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Docente-Cursos</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idDocenteCurso" value="Id " styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="idDocenteCurso"
+				styleClass="form-control" value="#{docenteCursoController.docentecurso.idDocenteCurso}"
+				required="true" />
+				
+			<h:outputLabel for="aniosExperiencia" value="Experiencia "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="aniosExperiencia"
+				styleClass="form-control"
+				value="#{docenteCursoController.docentecurso.numAniosExperiencia}" 
+				required="true" />
+				
+			<p:outputLabel for="cboDocente" value="Docente" />
+			
+			<p:selectOneMenu id="cboDocente" value="#{docenteCursoController.docentecurso.docente}"
+					converter="omnifaces.SelectItemsConverter">
+					<f:selectItems value="#{docenteCursoController.listaDocentes}" var="d" 
+					 	itemLabel="#{d.nombreCompleto}" itemValue="#{d}"/>			
+			</p:selectOneMenu>
+			
+			<p:outputLabel for="cboCurso" value="Curso" />
+			
+			<p:selectOneMenu id="cboCurso" value="#{docenteCursoController.docentecurso.curso}"
+					converter="omnifaces.SelectItemsConverter">
+					<f:selectItems value="#{docenteCursoController.listaCursos}" var="c" 
+					 	itemLabel="#{c.nombreCurso}" itemValue="#{c}"/>			
+			</p:selectOneMenu>				
+							
+
+			<br />
+
+			<p:commandButton value="Grabar"
+				actionListener="#{docenteCursoController.insertar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listDocenteCurso?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listDocenteCurso?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>
