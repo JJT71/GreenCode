@@ -9,7 +9,9 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import pe.edu.upc.entity.Distrito;
 import pe.edu.upc.entity.Reciclador;
+import pe.edu.upc.service.IDistritoService;
 import pe.edu.upc.service.IRecicladorService;
 
 @Named
@@ -17,20 +19,28 @@ import pe.edu.upc.service.IRecicladorService;
 public class RecicladorController implements Serializable{
 private static final long serialVersionUID = 1L;
 	
-	//@Inject
-	//private IDocenteService mService;aqui seria para lo de distrito
+	@Inject
+	private IDistritoService dService;
 	
 	@Inject
 	private IRecicladorService rService;
 	
+	private Distrito distrito;
 	private Reciclador reciclador;
+	
+	List<Distrito> listaDistritos;
 	List<Reciclador> listaRecicladores;
 	
 	@PostConstruct
 	public void init() {
-		this.listaRecicladores = new ArrayList<Reciclador>();
-		this.reciclador= new Reciclador();
+		distrito= new Distrito();
+		reciclador= new Reciclador();
+		
+		listaDistritos= new ArrayList<Distrito>();
+		listaRecicladores = new ArrayList<Reciclador>();
+		
 		this.listar();
+		this.listReciclador();
 	}
 	
 	public String nuevoReciclador() {
@@ -44,8 +54,12 @@ private static final long serialVersionUID = 1L;
 		this.listar();
 	}
 	
-	public void listar() {
+	public void listReciclador() {
 		listaRecicladores = rService.listar();
+	}
+	
+	public void listar() {
+		listaDistritos = dService.listar();
 	}
 	
 	public void limpiarReciclador() {
@@ -57,12 +71,37 @@ private static final long serialVersionUID = 1L;
 		this.listar();
 	}
 	//GETTERS AND SETTERS
+
+	public IDistritoService getdService() {
+		return dService;
+	}
+
+	public void setdService(IDistritoService dService) {
+		this.dService = dService;
+	}
+
+	public Distrito getDistrito() {
+		return distrito;
+	}
+
+	public void setDistrito(Distrito distrito) {
+		this.distrito = distrito;
+	}
+
 	public Reciclador getReciclador() {
 		return reciclador;
 	}
 
 	public void setReciclador(Reciclador reciclador) {
 		this.reciclador = reciclador;
+	}
+
+	public List<Distrito> getListaDistritos() {
+		return listaDistritos;
+	}
+
+	public void setListaDistritos(List<Distrito> listaDistritos) {
+		this.listaDistritos = listaDistritos;
 	}
 
 	public List<Reciclador> getListaRecicladores() {
@@ -72,6 +111,7 @@ private static final long serialVersionUID = 1L;
 	public void setListaRecicladores(List<Reciclador> listaRecicladores) {
 		this.listaRecicladores = listaRecicladores;
 	}
+	
 	
 
 	
