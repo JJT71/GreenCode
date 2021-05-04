@@ -1,5 +1,5 @@
 package pe.edu.upc.dao;
-
+//lili
 import java.util.List;
 
 import pe.edu.upc.entity.Categoria;
