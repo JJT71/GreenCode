@@ -10,11 +10,11 @@
 <ui:composition template="master.xhtml"> 
 	
 	<ui:define name="title">
-		.:Listado de Asignacion de Docentes-Cursos:.
+		.:Listado de Residuos:.
 	</ui:define>
 	
 	<ui:define name="titleCont">
-		<span>Asignacion Docente - Curso</span>
+		<span>Residuos</span>
 	</ui:define>
 	
 	<ui:define name="content">
@@ -25,7 +25,7 @@
 					<div class="form-group box-main-btn">
 						<span style="display: block; height:30px;"></span>
 						<p:commandButton value="Nuevo"						
-							action="#{docenteCursoController.nuevoDocenteCurso()}"
+							action="#{residuoController.nuevoResiduo()}"
 							styleClass="btn btn-primary ajax=false" />
 					</div>
 				</div>
@@ -34,29 +34,30 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="form-group table-responsive box-table-class">
-						<p:dataTable id="lstDocenteCurso" var="dc"
-							value="#{docenteCursoController.listaDocenteCursos}" paginator="true"
+						<p:dataTable id="lstDocenteCurso" var="re"
+							value="#{residuoController.listaResiduos}" paginator="true"
 							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
 							rows="10" styleClass="table table-bordered"
 							emptyMessage="No existen registros" rowIndexVar="item"
 							style="margin-bottom:0">
 
-							<p:column headerText="Id" sortBy="#{dc.idDocenteCurso}">
-								<h:outputText value="#{dc.idDocenteCurso}" />
+							<p:column headerText="Id" sortBy="#{re.idResiduo}">
+								<h:outputText value="#{re.idResiduo}" />
 							</p:column>
 							
-							<p:column headerText="Experiencia" sortBy="#{dc.numAniosExperiencia}">
-								<h:outputText value="#{dc.numAniosExperiencia}" />
+							<p:column headerText="Reciclador">
+								<h:outputText value="#{re.reciclador.nombre}" />
 							</p:column>
 							
-							<p:column headerText="Docente">
-								<h:outputText value="#{dc.docente.nombreCompleto}" />
+							<p:column headerText="Nombre" sortBy="#{re.nombre}">
+								<h:outputText value="#{re.nombre}" />
 							</p:column>
 							
-							<p:column headerText="Curso">
-								<h:outputText value="#{dc.curso.nombreCurso}" />
+							<p:column headerText="Peso">
+								<h:outputText value="#{re.peso}" />
 							</p:column>
-																					
+							
+																	
 							<p:column headerText="Operación" exportable="false">
 								<h:commandLink action="listDocenteCurso" value="Eliminar"
 									actionListener="#{docenteCursoController.eliminar(dc)}" />

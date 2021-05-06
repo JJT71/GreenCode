@@ -21,7 +21,7 @@ uniqueConstraints = {@UniqueConstraint(columnNames = {"email", "dni", "usuario",
 public class Reciclador implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	//hola
+
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int idReciclador;
@@ -57,7 +57,7 @@ public class Reciclador implements Serializable {
 	@Column(name="calificacion", nullable=false, columnDefinition = "DECIMAL(3,1)")
 	private Float calificacion;
 	
-	@Column(name="puntaje", nullable=false, columnDefinition = "DECIMAL(4,1)")//cambio aqui de nombre y tipo de dato
+	@Column(name="puntaje", nullable=false, columnDefinition = "DECIMAL(4,1)")
 	private Float puntaje;
 	
 	@Column(name="tipo", nullable=false, length=15) //ver esto
