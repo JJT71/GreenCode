@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html 	
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+		
+<ui:composition template="master.xhtml"> 
+	
+	<ui:define name="title">
+		.:Listado de Recolectores:.
+	</ui:define>
+	
+	<ui:define name="titleCont">
+		<span>Recolector</span>
+	</ui:define>
+	
+	<ui:define name="content">
+		<h:form>
+		
+			<div class="row">
+				<div class="col-sm-8 text-right">
+					<div class="form-group box-main-btn">
+						<span style="display: block; height:30px;"></span>
+						<p:commandButton value="Nuevo"						
+							action="#{recolectorController.nuevoRecolector()}"
+							styleClass="btn btn-primary ajax=false" />
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group table-responsive box-table-class">
+						<p:dataTable id="lstCurso" var="rec"
+							value="#{recolectorController.listaRecolectores}" paginator="true"
+							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
+							rows="10" styleClass="table table-bordered"
+							emptyMessage="No existen registros" rowIndexVar="item"
+							style="margin-bottom:0">
+
+							<p:column headerText="Id" sortBy="#{rec.idRecolector}">
+								<h:outputText value="#{rec.idRecolector}" />
+							</p:column>
+
+							<p:column headerText="Usuario" sortBy="#{rec.usuario}">
+								<h:outputText value="#{rec.usuario}" />
+							</p:column>
+							
+							<p:column headerText="Contraseña" sortBy="#{rec.contrasenia}">
+								<h:outputText value="#{rec.contrasenia}" />
+							</p:column>
+								
+							<p:column headerText="Operación" exportable="false">
+								<h:commandLink action="listRecolector" value="Eliminar"
+									actionListener="#{recolectorController.eliminar(rec)}" />
+							</p:column>
+
+						</p:dataTable>
+					</div>
+				</div>				
+			</div>									
+		</h:form>
+	</ui:define>
+	
+	<ui:define name="footerCont">
+	</ui:define>
+		
+</ui:composition> 
+</html>
+ 
