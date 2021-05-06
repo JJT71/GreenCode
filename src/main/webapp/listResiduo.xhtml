@@ -45,6 +45,10 @@
 								<h:outputText value="#{re.idResiduo}" />
 							</p:column>
 							
+							<p:column headerText="Reciclador">
+								<h:outputText value="#{re.reciclador.nombre}" />
+							</p:column>
+							
 							<p:column headerText="Nombre" sortBy="#{re.nombre}">
 								<h:outputText value="#{re.nombre}" />
 							</p:column>
@@ -52,6 +56,7 @@
 							<p:column headerText="Peso">
 								<h:outputText value="#{re.peso}" />
 							</p:column>
+							
 																	
 							<p:column headerText="Operación" exportable="false">
 								<h:commandLink action="listDocenteCurso" value="Eliminar"
