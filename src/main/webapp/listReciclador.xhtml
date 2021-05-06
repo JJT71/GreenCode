@@ -45,12 +45,16 @@
 								<h:outputText value="#{rec.idReciclador}" />
 							</p:column>
 
-							<p:column headerText="Usuario" sortBy="#{rec.usuario}">
-								<h:outputText value="#{rec.usuario}" />
+							<p:column headerText="Nombre" sortBy="#{rec.nombre}">
+								<h:outputText value="#{rec.nombre}" />
 							</p:column>
 							
-							<p:column headerText="Contraseña" sortBy="#{rec.contrasenia}">
-								<h:outputText value="#{rec.contrasenia}" />
+							<p:column headerText="Apellido" sortBy="#{rec.apellido}">
+								<h:outputText value="#{rec.apellido}" />
+							</p:column>
+							
+							<p:column headerText="Distrito" sortBy="#{rec.distrito.nombre}">
+								<h:outputText value="#{rec.distrito.nombre}" />
 							</p:column>
 								
 							<p:column headerText="Operación" exportable="false">
