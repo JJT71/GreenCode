@@ -51,11 +51,12 @@
 				styleClass="form-control"
 				value="#{cuponController.cupon.puntaje}" maxlength="2"
 				required="true" />
+				
 			<p:outputLabel for="cboReciclador" value="Reciclador" />
 			
 			<p:selectOneMenu id="cboReciclador" value="#{cuponController.cupon.reciclador}"
 					converter="omnifaces.SelectItemsConverter">
-					<f:selectItems value="#{cuponController.listaCupones}" var="r" 
+					<f:selectItems value="#{cuponController.listaRecicladores}" var="r" 
 					 	itemLabel="#{r.nombre}" itemValue="#{r}"/>			
 			</p:selectOneMenu>	
 				
