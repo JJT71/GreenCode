@@ -49,6 +49,14 @@
 								<h:outputText value="#{cup.nombre}" />
 							</p:column>
 							
+							<p:column headerText="Código" sortBy="#{cup.codigo}">
+								<h:outputText value="#{cup.codigo}" />
+							</p:column>
+							
+							<p:column headerText="Fecha de Expiración" sortBy="#{cup.fechaExpiracion}">
+								<h:outputText value="#{cup.fechaExpiracion}" />
+							</p:column>
+							
 							<p:column headerText="Operación" exportable="false">
 								<h:commandLink action="listCupon" value="Eliminar"
 									actionListener="#{cuponController.eliminar(cup)}" />
