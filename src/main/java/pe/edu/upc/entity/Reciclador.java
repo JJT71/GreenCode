@@ -21,7 +21,7 @@ uniqueConstraints = {@UniqueConstraint(columnNames = {"email", "dni", "usuario",
 public class Reciclador implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+	//hola
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int idReciclador;
