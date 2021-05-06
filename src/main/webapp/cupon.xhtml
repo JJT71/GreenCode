@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de Cupones:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Cupones</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idCupon" value="Id " styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="idCupon"
+				styleClass="form-control" value="#{cuponController.cupon.idCupon}"
+				required="true" />
+				
+			<h:outputLabel for="nombreCupon" value="Nombre "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="nombreCupon"
+				styleClass="form-control"
+				value="#{cuponController.cupon.nombre}" maxlength="30"
+				required="true" />
+				
+			<h:outputLabel value="Fecha de Expiracion"
+				styleClass="control-label" /> <br />
+			<p:calendar id="fecha" effect="slide" required="true"
+				pattern="dd/MM/yyyy" value="#{cuponController.cupon.fechaExpiracion}"
+				title="Fecha de Expiración" />
+			<br />
+			
+			<h:outputLabel for="codigoCupon" value="Codigo "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="codigoCupon"
+				styleClass="form-control"
+				value="#{cuponController.cupon.codigo}" maxlength="10"
+				required="true" />
+				
+			<h:outputLabel for="puntaje" value="Puntaje"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="puntaje"
+				styleClass="form-control"
+				value="#{cuponController.cupon.puntaje}" maxlength="2"
+				required="true" />
+			<p:outputLabel for="cboReciclador" value="Reciclador" />
+			
+			<p:selectOneMenu id="cboReciclador" value="#{cuponController.cupon.reciclador}"
+					converter="omnifaces.SelectItemsConverter">
+					<f:selectItems value="#{cuponController.listaCupones}" var="r" 
+					 	itemLabel="#{r.nombre}" itemValue="#{r}"/>			
+			</p:selectOneMenu>	
+				
+			<p:commandButton value="Grabar"
+				actionListener="#{cuponController.insertar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listCupon?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listCupon?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>
