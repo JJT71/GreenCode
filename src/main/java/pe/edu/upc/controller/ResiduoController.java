@@ -87,13 +87,6 @@ public class ResiduoController implements Serializable {
 		this.listResiduo();
 	}
 
-	public ICategoriaService getcService() {
-		return cService;
-	}
-
-	public void setcService(ICategoriaService cService) {
-		this.cService = cService;
-	}
 
 	public IResiduoService getReService() {
 		return reService;

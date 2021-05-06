@@ -9,11 +9,8 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
-import pe.edu.upc.dao.ICategoriaDao;
-import pe.edu.upc.dao.ICuentaDao;
+
 import pe.edu.upc.dao.ITransaccionDao;
-import pe.edu.upc.entity.Categoria;
-import pe.edu.upc.entity.Cuenta;
 import pe.edu.upc.entity.Transaccion;
 
 public class TransaccionDaoImpl implements ITransaccionDao, Serializable {

@@ -5,14 +5,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import pe.edu.upc.dao.ICategoriaDao;
-import pe.edu.upc.dao.ICuentaDao;
 import pe.edu.upc.dao.ITransaccionDao;
-import pe.edu.upc.entity.Categoria;
-import pe.edu.upc.entity.Cuenta;
 import pe.edu.upc.entity.Transaccion;
-import pe.edu.upc.service.ICategoriaService;
-import pe.edu.upc.service.ICuentaService;
 import pe.edu.upc.service.ITransaccionService;
 
 public class ITransaccionServiceImpl implements ITransaccionService, Serializable {

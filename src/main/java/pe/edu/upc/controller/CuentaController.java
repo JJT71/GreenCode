@@ -9,9 +9,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import pe.edu.upc.entity.Categoria;
 import pe.edu.upc.entity.Cuenta;
-import pe.edu.upc.service.ICategoriaService;
 import pe.edu.upc.service.ICuentaService;
 
 @Named
@@ -74,7 +72,7 @@ public class CuentaController implements Serializable {
 	public void setListaCuentas(List<Cuenta> listaCuentas) {
 		this.listaCuentas = listaCuentas;
 	}
-	//GETTERS AND SETTERS
+	
 	
 	
 	

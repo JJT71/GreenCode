@@ -9,11 +9,8 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import pe.edu.upc.entity.Categoria;
-import pe.edu.upc.entity.Cuenta;
+
 import pe.edu.upc.entity.Transaccion;
-import pe.edu.upc.service.ICategoriaService;
-import pe.edu.upc.service.ICuentaService;
 import pe.edu.upc.service.ITransaccionService;
 
 @Named
@@ -78,6 +75,6 @@ public class TransaccionController implements Serializable {
 	public void setListaTransacciones(List<Transaccion> listaTransacciones) {
 		this.listaTransacciones = listaTransacciones;
 	}
-	//GETTERS AND SETTERS
+	
 	
 }
