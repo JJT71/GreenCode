@@ -72,9 +72,6 @@ private static final long serialVersionUID = 1L;
 	}
 	//GETTERS AND SETTERS
 
-	
-
-	
 
 	public Distrito getDistrito() {
 		return distrito;

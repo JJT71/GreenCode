@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Residuo:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Residuo</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idDocenteCurso" value="Id " styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="idResiduo"
+				styleClass="form-control" value="#{residuoController.residuo.idResiduo}"
+				required="true" />
+				
+			<h:outputLabel for="nombre" value="Nombre "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="nombre"
+				styleClass="form-control"
+				value="#{residuoController.residuo.nombre}" 
+				required="true" />
+
+
+			<h:outputLabel for="peso" value="Peso"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="peso" styleClass="form-control"
+				value="#{residuoController.residuo.peso}" required="true" />
+
+
+			<p:outputLabel for="cboCategoria" value="Categoria" />
+			
+			<p:selectOneMenu id="cboCategoria" value="#{residuoController.residuo.categoria}"
+					converter="omnifaces.SelectItemsConverter">
+					<f:selectItems value="#{residuoController.listaCategorias}" var="d" 
+					 	itemLabel="#{d.nombre}" itemValue="#{d}"/>			
+			</p:selectOneMenu>
+			
+			<p:outputLabel for="cboReciclador" value="Reciclador" />
+			
+			<p:selectOneMenu id="cboReciclador" value="#{residuoController.residuo.reciclador}"
+					converter="omnifaces.SelectItemsConverter">
+					<f:selectItems value="#{residuoController.listaRecicladores}" var="r" 
+					 	itemLabel="#{r.nombre}" itemValue="#{r}"/>			
+			</p:selectOneMenu>				
+							
+
+			<br />
+
+			<p:commandButton value="Grabar"
+				actionListener="#{residuoController.insertar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listResiduo?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listResiduo?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

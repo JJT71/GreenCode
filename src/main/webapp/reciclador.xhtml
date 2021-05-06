@@ -129,12 +129,11 @@
 			<br />
 
 			<p:outputLabel for="cboDistrito" value="Distrito" />
-
-			<p:selectOneMenu id="cboDistrito"
-				value="#{RecicladorController.reciclador.distrito}"
+			
+			<p:selectOneMenu id="cboDistrito" value="#{recicladorController.reciclador.distrito}"
 				converter="omnifaces.SelectItemsConverter">
-				<f:selectItems value="#{RecicladorController.listaDistritos}"
-					var="d" itemLabel="#{d.nombre}" itemValue="#{d}" />
+				<f:selectItems value="#{recicladorController.listaDistritos}"  var="d" 
+					itemLabel="#{d.nombre}" itemValue="#{d}" />
 			</p:selectOneMenu>
 			<br />
 			
