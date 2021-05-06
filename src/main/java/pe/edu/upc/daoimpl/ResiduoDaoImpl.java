@@ -23,7 +23,6 @@ public class ResiduoDaoImpl implements IResiduoDao, Serializable {
 	@Override
 	public void insertar(Residuo residuo) {
 		em.persist(residuo);
-		
 	}
 
 	@SuppressWarnings("unchecked")
