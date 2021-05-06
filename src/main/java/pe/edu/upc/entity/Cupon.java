@@ -43,7 +43,6 @@ public class Cupon implements Serializable{
 
 	public Cupon() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Cupon(int idCupon, String nombre, Date fechaExpiracion, String codigo, Integer puntaje,

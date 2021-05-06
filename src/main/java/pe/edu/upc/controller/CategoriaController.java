@@ -31,7 +31,7 @@ public class CategoriaController implements Serializable {
 		this.listar();
 	}
 
-	public String nuevaCategoria() { //para crear una vista de categoria
+	public String nuevaCategoria() { 
 		this.setCategoria(new Categoria());
 		return "categoria.xhtml";
 	}
@@ -68,9 +68,5 @@ public class CategoriaController implements Serializable {
 	public void setListaCategorias(List<Categoria> listaCategorias) {
 		this.listaCategorias = listaCategorias;
 	}
-	
-	
-	
-	
 	
 }

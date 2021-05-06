@@ -44,7 +44,6 @@ public class Pedido implements Serializable{
 	
 	public Pedido() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Pedido(int idPedido, Date fecha, Float montoTotal, Date tiempoLlegada, String estado,
@@ -104,6 +103,58 @@ public class Pedido implements Serializable{
 
 	public void setEstado(String estado) {
 		this.estado = estado;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((estado == null) ? 0 : estado.hashCode());
+		result = prime * result + ((fecha == null) ? 0 : fecha.hashCode());
+		result = prime * result + idPedido;
+		result = prime * result + ((montoTotal == null) ? 0 : montoTotal.hashCode());
+		result = prime * result + ((reciclador == null) ? 0 : reciclador.hashCode());
+		result = prime * result + ((tiempoLlegada == null) ? 0 : tiempoLlegada.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Pedido other = (Pedido) obj;
+		if (estado == null) {
+			if (other.estado != null)
+				return false;
+		} else if (!estado.equals(other.estado))
+			return false;
+		if (fecha == null) {
+			if (other.fecha != null)
+				return false;
+		} else if (!fecha.equals(other.fecha))
+			return false;
+		if (idPedido != other.idPedido)
+			return false;
+		if (montoTotal == null) {
+			if (other.montoTotal != null)
+				return false;
+		} else if (!montoTotal.equals(other.montoTotal))
+			return false;
+		if (reciclador == null) {
+			if (other.reciclador != null)
+				return false;
+		} else if (!reciclador.equals(other.reciclador))
+			return false;
+		if (tiempoLlegada == null) {
+			if (other.tiempoLlegada != null)
+				return false;
+		} else if (!tiempoLlegada.equals(other.tiempoLlegada))
+			return false;
+		return true;
 	}
 	
 	

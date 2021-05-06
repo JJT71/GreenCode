@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Index;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -18,14 +17,11 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name="reciclador",
-indexes= {@Index(columnList = "nombre,apellido",name="reciclador_index_nombre_apellido")},//LO DEL INDICE ES PARA FUNCIONES DE BUSCAR
-uniqueConstraints = {@UniqueConstraint(columnNames = {"email", "dni", "usuario", "celular"}) }
-		)
+uniqueConstraints = {@UniqueConstraint(columnNames = {"email", "dni", "usuario", "celular"}) })
 public class Reciclador implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	//COMO QUEDAMOS USUARIO Y CONTR Y CAMBIR A FALSE LOS NULLABLES
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int idReciclador;
@@ -70,38 +66,9 @@ public class Reciclador implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="idDistrito", nullable = false)
 	private Distrito distrito;
-//nuevo codigo	SINO CAMBIOOOOOO DUDA CON LO DE USUARIO
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + idReciclador;
-		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Reciclador other = (Reciclador) obj;
-		if (idReciclador != other.idReciclador)
-			return false;
-		if (nombre == null) {
-			if (other.nombre != null)
-				return false;
-		} else if (!nombre.equals(other.nombre))
-			return false;
-		return true;
-	}
 
 	public Reciclador() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Reciclador(int idReciclador, String usuario, String contrasenia, String nombre, String apellido, Integer dni,
@@ -234,6 +201,106 @@ public class Reciclador implements Serializable {
 
 	public void setDistrito(Distrito distrito) {
 		this.distrito = distrito;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((apellido == null) ? 0 : apellido.hashCode());
+		result = prime * result + ((calificacion == null) ? 0 : calificacion.hashCode());
+		result = prime * result + ((celular == null) ? 0 : celular.hashCode());
+		result = prime * result + ((contrasenia == null) ? 0 : contrasenia.hashCode());
+		result = prime * result + ((direccion == null) ? 0 : direccion.hashCode());
+		result = prime * result + ((distrito == null) ? 0 : distrito.hashCode());
+		result = prime * result + ((dni == null) ? 0 : dni.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((fechaNacimiento == null) ? 0 : fechaNacimiento.hashCode());
+		result = prime * result + idReciclador;
+		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+		result = prime * result + ((puntaje == null) ? 0 : puntaje.hashCode());
+		result = prime * result + ((tipo == null) ? 0 : tipo.hashCode());
+		result = prime * result + ((usuario == null) ? 0 : usuario.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Reciclador other = (Reciclador) obj;
+		if (apellido == null) {
+			if (other.apellido != null)
+				return false;
+		} else if (!apellido.equals(other.apellido))
+			return false;
+		if (calificacion == null) {
+			if (other.calificacion != null)
+				return false;
+		} else if (!calificacion.equals(other.calificacion))
+			return false;
+		if (celular == null) {
+			if (other.celular != null)
+				return false;
+		} else if (!celular.equals(other.celular))
+			return false;
+		if (contrasenia == null) {
+			if (other.contrasenia != null)
+				return false;
+		} else if (!contrasenia.equals(other.contrasenia))
+			return false;
+		if (direccion == null) {
+			if (other.direccion != null)
+				return false;
+		} else if (!direccion.equals(other.direccion))
+			return false;
+		if (distrito == null) {
+			if (other.distrito != null)
+				return false;
+		} else if (!distrito.equals(other.distrito))
+			return false;
+		if (dni == null) {
+			if (other.dni != null)
+				return false;
+		} else if (!dni.equals(other.dni))
+			return false;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
+		if (fechaNacimiento == null) {
+			if (other.fechaNacimiento != null)
+				return false;
+		} else if (!fechaNacimiento.equals(other.fechaNacimiento))
+			return false;
+		if (idReciclador != other.idReciclador)
+			return false;
+		if (nombre == null) {
+			if (other.nombre != null)
+				return false;
+		} else if (!nombre.equals(other.nombre))
+			return false;
+		if (puntaje == null) {
+			if (other.puntaje != null)
+				return false;
+		} else if (!puntaje.equals(other.puntaje))
+			return false;
+		if (tipo == null) {
+			if (other.tipo != null)
+				return false;
+		} else if (!tipo.equals(other.tipo))
+			return false;
+		if (usuario == null) {
+			if (other.usuario != null)
+				return false;
+		} else if (!usuario.equals(other.usuario))
+			return false;
+		return true;
 	}
 	
 	

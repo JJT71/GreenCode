@@ -35,7 +35,7 @@ public class TransaccionController implements Serializable {
 		this.listar();
 	}
 
-	public String nuevaTransaccion() { //para crear una vista de cuenta
+	public String nuevaTransaccion() { 
 		this.setTransaccion(new Transaccion());
 		return "transaccion.xhtml";
 	}
