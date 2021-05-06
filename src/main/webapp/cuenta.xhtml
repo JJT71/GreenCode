@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de Cuentas:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Cuentas</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idCuenta" value="Id " styleClass="control-label" />
+			<p:inputText autocomplete="off" id="idCuenta"
+				styleClass="form-control" value="#{cuentaController.cuenta.idCuenta}"
+				required="true" />
+				
+			<h:outputLabel for="numeroCuenta" value="Numero de Cuenta"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="numeroCuenta"
+				styleClass="form-control"
+				value="#{cuentaController.cuenta.numeroCuenta}" maxlength="30"
+				required="true" />
+				
+			<h:outputLabel for="contraseniaCuenta" value="Contraseña"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="contraseniaCuenta"
+				styleClass="form-control"
+				value="#{cuentaController.cuenta.contraseniaCuenta}" maxlength="30"
+				required="true" />							
+				
+			<p:outputLabel for="cboRecolector" value="Recolector" />
+			
+			<p:selectOneMenu id="cboRecolector" value="#{cuentaController.cuenta.recolector}"
+					converter="omnifaces.SelectItemsConverter">
+					<f:selectItems value="#{cuentaController.listaRecolectores}" var="r" 
+					 	itemLabel="#{r.nombre}" itemValue="#{r}"/>			
+			</p:selectOneMenu>	
+				
+			<p:commandButton value="Grabar"
+				actionListener="#{cuentaController.insertar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listCuenta?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listCuenta?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>
