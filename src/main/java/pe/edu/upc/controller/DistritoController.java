@@ -36,7 +36,7 @@ public class DistritoController implements Serializable {
 	
 	public String nuevoDistrito() {
 		this.setDistrito(new Distrito());
-		return "residuo.xhtml";
+		return "distrito.xhtml";
 	}
 	
 	public void insertar() {

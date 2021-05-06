@@ -2,7 +2,7 @@ package pe.edu.upc.service;
 
 import java.util.List;
 
-import pe.edu.upc.entity.Cuenta;
+
 import pe.edu.upc.entity.Transaccion;
 
 public interface ITransaccionService {

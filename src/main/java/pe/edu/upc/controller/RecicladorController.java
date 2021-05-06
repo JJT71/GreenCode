@@ -72,13 +72,9 @@ private static final long serialVersionUID = 1L;
 	}
 	//GETTERS AND SETTERS
 
-	public IDistritoService getdService() {
-		return dService;
-	}
+	
 
-	public void setdService(IDistritoService dService) {
-		this.dService = dService;
-	}
+	
 
 	public Distrito getDistrito() {
 		return distrito;
