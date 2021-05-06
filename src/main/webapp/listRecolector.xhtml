@@ -10,11 +10,11 @@
 <ui:composition template="master.xhtml"> 
 	
 	<ui:define name="title">
-		.:Listado de Recicladores:.
+		.:Listado de Recolectores:.
 	</ui:define>
 	
 	<ui:define name="titleCont">
-		<span>Recicladores</span>
+		<span>Recolector</span>
 	</ui:define>
 	
 	<ui:define name="content">
@@ -25,7 +25,7 @@
 					<div class="form-group box-main-btn">
 						<span style="display: block; height:30px;"></span>
 						<p:commandButton value="Nuevo"						
-							action="#{recicladorController.nuevoReciclador()}"
+							action="#{recolectorController.nuevoRecolector()}"
 							styleClass="btn btn-primary ajax=false" />
 					</div>
 				</div>
@@ -35,31 +35,27 @@
 				<div class="col-sm-12">
 					<div class="form-group table-responsive box-table-class">
 						<p:dataTable id="lstCurso" var="rec"
-							value="#{recicladorController.listaRecicladores}" paginator="true"
+							value="#{recolectorController.listaRecolectores}" paginator="true"
 							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
 							rows="10" styleClass="table table-bordered"
 							emptyMessage="No existen registros" rowIndexVar="item"
 							style="margin-bottom:0">
 
-							<p:column headerText="Id" sortBy="#{rec.idReciclador}">
-								<h:outputText value="#{rec.idReciclador}" />
+							<p:column headerText="Id" sortBy="#{rec.idRecolector}">
+								<h:outputText value="#{rec.idRecolector}" />
 							</p:column>
 
-							<p:column headerText="Nombre" sortBy="#{rec.nombre}">
-								<h:outputText value="#{rec.nombre}" />
+							<p:column headerText="Usuario" sortBy="#{rec.usuario}">
+								<h:outputText value="#{rec.usuario}" />
 							</p:column>
 							
-							<p:column headerText="Apellido" sortBy="#{rec.apellido}">
-								<h:outputText value="#{rec.apellido}" />
-							</p:column>
-							
-							<p:column headerText="Distrito" sortBy="#{rec.distrito.nombre}">
-								<h:outputText value="#{rec.distrito.nombre}" />
+							<p:column headerText="Contraseña" sortBy="#{rec.contrasenia}">
+								<h:outputText value="#{rec.contrasenia}" />
 							</p:column>
 								
 							<p:column headerText="Operación" exportable="false">
-								<h:commandLink action="listReciclador" value="Eliminar"
-									actionListener="#{recicladorController.eliminar(rec)}" />
+								<h:commandLink action="listRecolector" value="Eliminar"
+									actionListener="#{recolectorController.eliminar(rec)}" />
 							</p:column>
 
 						</p:dataTable>

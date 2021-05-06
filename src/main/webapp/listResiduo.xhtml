@@ -56,11 +56,10 @@
 							<p:column headerText="Peso">
 								<h:outputText value="#{re.peso}" />
 							</p:column>
-							
-																	
+																		
 							<p:column headerText="Operación" exportable="false">
-								<h:commandLink action="listDocenteCurso" value="Eliminar"
-									actionListener="#{docenteCursoController.eliminar(dc)}" />
+								<h:commandLink action="listResiduo" value="Eliminar"
+									actionListener="#{residuoController.eliminar(re)}" />
 							</p:column>
 
 						</p:dataTable>

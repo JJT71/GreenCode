@@ -8,18 +8,18 @@
 <ui:composition template="master.xhtml">
 
 	<ui:define name="title">
-        .:Registro de Recicladores:.
+        .:Registro de Recolectores:.
     </ui:define>
 
 	<ui:define name="titleCont">
-		<span>Reciclador</span>
+		<span>Recolector</span>
 	</ui:define>
 
 	<ui:define name="content">
 		<h:form>
-			<h:outputLabel for="idReciclador" value="Id " styleClass="control-label" />
-			<p:inputText autocomplete="off" id="idReciclador"
-				styleClass="form-control" value="#{recicladorController.reciclador.idReciclador}"
+			<h:outputLabel for="idRecolector" value="Id " styleClass="control-label" />
+			<p:inputText autocomplete="off" id="idRecolector"
+				styleClass="form-control" value="#{recolectorController.recolector.idRecolector}"
 				required="true" />
 				
 			<h:outputLabel for="usuario" value="Usuario"
@@ -27,15 +27,16 @@
 
 			<p:inputText autocomplete="off" id="usuario"
 				styleClass="form-control"
-				value="#{recicladorController.reciclador.usuario}" maxlength="30"
+				value="#{recolectorController.recolector.usuario}" maxlength="30"
 				required="true" />
 			<br />
 			
 			<h:outputLabel for="contrasenia" value="Contraseña"
 				styleClass="control-label" />
+
 			<p:inputText autocomplete="off" id="contrasenia"
-				styleClass="form-control" type="password"
-				value="#{recicladorController.reciclador.contrasenia}" maxlength="60"
+				styleClass="form-control"
+				value="#{recolectorController.recolector.contrasenia}" maxlength="60"
 				required="true" />
 			<br />
 			
@@ -44,7 +45,7 @@
 
 			<p:inputText autocomplete="off" id="nombre"
 				styleClass="form-control"
-				value="#{recicladorController.reciclador.nombre}" maxlength="20"
+				value="#{recolectorController.recolector.nombre}" maxlength="20"
 				required="true" />
 			<br />
 			
@@ -53,7 +54,7 @@
 
 			<p:inputText autocomplete="off" id="apellido"
 				styleClass="form-control"
-				value="#{recicladorController.reciclador.apellido}" maxlength="20"
+				value="#{recolectorController.recolector.apellido}" maxlength="20"
 				required="true" />
 			<br />
 			
@@ -62,7 +63,7 @@
 
 			<p:inputText autocomplete="off" id="dni"
 				styleClass="form-control"
-				value="#{recicladorController.reciclador.dni}" maxlength="8"
+				value="#{recolectorController.recolector.dni}" length="8"
 				required="true" />
 			<br />
 			
@@ -71,7 +72,7 @@
 
 			<p:inputText autocomplete="off" id="celular"
 				styleClass="form-control"
-				value="#{recicladorController.reciclador.celular}" maxlength="9"
+				value="#{recolectorController.recolector.celular}" maxlength="9"
 				required="true" />
 			<br />
 			
@@ -80,7 +81,7 @@
 
 			<p:inputText autocomplete="off" id="email"
 				styleClass="form-control"
-				value="#{recicladorController.reciclador.email}" maxlength="40"
+				value="#{recolectorController.recolector.email}" maxlength="40"
 				required="true" />
 			<br />
 			
@@ -89,14 +90,14 @@
 
 			<p:inputText autocomplete="off" id="direccion"
 				styleClass="form-control"
-				value="#{recicladorController.reciclador.direccion}" maxlength="50"
+				value="#{recolectorController.recolector.direccion}" maxlength="50"
 				required="true" />
 			<br />
 			
 			<h:outputLabel value="Fecha de Nacimiento"
 				styleClass="control-label" /> <br />
 			<p:calendar id="fecha" effect="slide" required="true"
-				pattern="dd/MM/yyyy" value="#{recicladorController.reciclador.fechaNacimiento}"
+				pattern="dd/MM/yyyy" value="#{recolectorController.recolector.fechaNacimiento}"
 				title="Fecha de Nacimiento" />
 			<br />
 
@@ -105,16 +106,7 @@
 
 			<p:inputText autocomplete="off" id="calificacion"
 				styleClass="form-control"
-				value="#{recicladorController.reciclador.calificacion}" maxlength="2"
-				required="true" />
-			<br />
-			
-			<h:outputLabel for="puntaje" value="Puntaje"
-				styleClass="control-label" />
-
-			<p:inputText autocomplete="off" id="puntaje"
-				styleClass="form-control"
-				value="#{recicladorController.reciclador.puntaje}" maxlength="2"
+				value="#{recolectorController.recolector.calificacion}" maxlength="2"
 				required="true" />
 			<br />
 			
@@ -123,25 +115,34 @@
 
 			<p:inputText autocomplete="off" id="tipo"
 				styleClass="form-control"
-				value="#{recicladorController.reciclador.tipo}Reciclador" maxlength="15"
+				value="#{recolectorController.recolector.tipo}" maxlength="15"
+				required="true" />
+			<br />
+
+	<h:outputLabel for="ganancia" value="Ganancia"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="ganancia"
+				styleClass="form-control"
+				value="#{recolectorController.recolector.ganancia}" maxlength="3"
 				required="true" />
 			<br />
 
 			<p:outputLabel for="cboDistrito" value="Distrito" />
 			
-			<p:selectOneMenu id="cboDistrito" value="#{recicladorController.reciclador.distrito}"
+			<p:selectOneMenu id="cboDistrito" value="#{recolectorController.recolector.distrito}"
 				converter="omnifaces.SelectItemsConverter">
-				<f:selectItems value="#{recicladorController.listaDistritos}"  var="d" 
+				<f:selectItems value="#{recolectorController.listaDistritos}"  var="d" 
 					itemLabel="#{d.nombre}" itemValue="#{d}" />
 			</p:selectOneMenu>
 			<br />
 			
 			<p:commandButton value="Grabar"
-				actionListener="#{recicladorController.insertar()}"
+				actionListener="#{recolectorController.insertar()}"
 				styleClass="btn btn-primary " update="@form"
-				action="listReciclador?faces-redirect=true" />
+				action="listRecolector?faces-redirect=true" />
 			<p:commandButton value="Cancelar"
-				action="listReciclador?faces-redirect=true" immediate="true"
+				action="listRecolector?faces-redirect=true" immediate="true"
 				styleClass="btn btn-default" ajax="false" />
 
 			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
