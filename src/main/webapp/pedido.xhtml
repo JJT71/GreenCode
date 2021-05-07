@@ -23,15 +23,14 @@
 				styleClass="form-control" value="#{pedidoController.pedido.idPedido}"
 				required="true" />
 				
-			<h:outputLabel for="fecha" value="Fecha "
-				styleClass="control-label" />
-
-			<p:inputText autocomplete="off" id="fecha"
-				styleClass="form-control"
-				value="#{pedidoController.pedido.fecha}" 
-				required="true" />
-
-
+			<br />
+			<h:outputLabel value="Fecha"
+				styleClass="control-label" /> <br />
+			<p:calendar id="fecha" effect="slide" required="true"
+				pattern="dd/MM/yyyy" value="#{pedidoController.pedido.fecha}"
+				title="Fecha" />
+			<br />
+			
 			<h:outputLabel for="montoTotal" value="Monto Total"
 				styleClass="control-label" />
 
@@ -52,7 +51,7 @@
 
 			<p:outputLabel for="cboReciclador" value="Reciclador" />
 			
-			<p:selectOneMenu id="cboReciclador" value="#{pedidoController.reciclador.nombre}"
+			<p:selectOneMenu id="cboReciclador" value="#{pedidoController.pedido.reciclador}"
 					converter="omnifaces.SelectItemsConverter">
 					<f:selectItems value="#{pedidoController.listaRecicladores}" var="r" 
 					 	itemLabel="#{r.nombre}" itemValue="#{r}"/>			

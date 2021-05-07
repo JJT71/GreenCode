@@ -31,9 +31,8 @@ public class Pedido implements Serializable{
 	@Column(name="monto_total", nullable=false, columnDefinition = "DECIMAL(3,1)")
 	private Float montoTotal;
 	
-	@Column(name="tiempo_llegada", nullable=false)
-	@Temporal(TemporalType.DATE)
-	private Date tiempoLlegada;
+	@Column(name="tiempo_llegada", nullable=false, columnDefinition = "DECIMAL(3,1)")
+	private Float tiempoLlegada;
 	
 	@Column(name="estado", nullable = false, length = 20)
 	private String estado;
@@ -46,7 +45,7 @@ public class Pedido implements Serializable{
 		super();
 	}
 
-	public Pedido(int idPedido, Date fecha, Float montoTotal, Date tiempoLlegada, String estado,
+	public Pedido(int idPedido, Date fecha, Float montoTotal, Float tiempoLlegada, String estado,
 			Reciclador reciclador) {
 		super();
 		this.idPedido = idPedido;
@@ -89,11 +88,11 @@ public class Pedido implements Serializable{
 		this.montoTotal = montoTotal;
 	}
 
-	public Date getTiempoLlegada() {
+	public Float getTiempoLlegada() {
 		return tiempoLlegada;
 	}
 
-	public void setTiempoLlegada(Date tiempoLlegada) {
+	public void setTiempoLlegada(Float tiempoLlegada) {
 		this.tiempoLlegada = tiempoLlegada;
 	}
 

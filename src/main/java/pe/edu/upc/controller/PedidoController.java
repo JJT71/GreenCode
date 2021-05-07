@@ -49,7 +49,7 @@ public class PedidoController implements Serializable {
 	
 	public String nuevoPedido() {
 		this.setPedido(new Pedido());
-		return "Pedido.xhtml";
+		return "pedido.xhtml";
 	}
 	
 	public void insertar() {

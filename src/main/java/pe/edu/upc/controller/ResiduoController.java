@@ -87,13 +87,6 @@ public class ResiduoController implements Serializable {
 		this.listResiduo();
 	}
 
-
-	
-
-	public void setReService(IResiduoService reService) {
-		this.reService = reService;
-	}
-
 	public Reciclador getReciclador() {
 		return reciclador;
 	}
