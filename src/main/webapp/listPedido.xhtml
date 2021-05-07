@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html 	
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+		
+<ui:composition template="master.xhtml"> 
+	
+	<ui:define name="title">
+		.:Listado de Pedidos:.
+	</ui:define>
+	
+	<ui:define name="titleCont">
+		<span>Pedidos</span>
+	</ui:define>
+	
+	<ui:define name="content">
+		<h:form>
+		
+			<div class="row">
+				<div class="col-sm-8 text-right">
+					<div class="form-group box-main-btn">
+						<span style="display: block; height:30px;"></span>
+						<p:commandButton value="Nuevo"						
+							action="#{pedidoController.nuevoPedido()}"
+							styleClass="btn btn-primary ajax=false" />
+					</div>
+				</div>
+			</div>
+			<br />
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group table-responsive box-table-class">
+						<p:dataTable id="lstPedido" var="pe"
+							value="#{pedidoController.listaPedidos}" paginator="true"
+							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
+							rows="10" styleClass="table table-bordered"
+							emptyMessage="No existen registros" rowIndexVar="item"
+							style="margin-bottom:0">
+
+							<p:column headerText="Id" sortBy="#{pe.idPedido}">
+								<h:outputText value="#{pe.idPedido}" />
+							</p:column>
+							
+							<p:column headerText="Reciclador">
+								<h:outputText value="#{pe.reciclador.nombre}" />
+							</p:column>
+							
+							<p:column headerText="Fecha">
+								<h:outputText value="#{pe.fecha}" />
+							</p:column>
+							
+							<p:column headerText="Nombre" sortBy="#{re.nombre}">
+								<h:outputText value="#{re.nombre}" />
+							</p:column>
+							
+							<p:column headerText="Monto">
+								<h:outputText value="#{pe.montoTotal}" />
+							</p:column>
+							
+							<p:column headerText="Tiempo Llegada">
+								<h:outputText value="#{pe.tiempoLlegada}" />
+							</p:column>
+							
+							<p:column headerText="Estado">
+								<h:outputText value="#{pe.estado}" />
+							</p:column>
+																		
+							<p:column headerText="Operación" exportable="false">
+								<h:commandLink action="listPedido" value="Eliminar"
+									actionListener="#{pedidoController.eliminar(pe)}" />
+							</p:column>
+
+						</p:dataTable>
+					</div>
+				</div>				
+			</div>									
+		</h:form>
+	</ui:define>
+	
+	<ui:define name="footerCont">
+	</ui:define>
+		
+</ui:composition> 
+</html>
+ 

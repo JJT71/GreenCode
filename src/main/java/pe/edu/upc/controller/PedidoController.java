@@ -11,7 +11,9 @@ import javax.inject.Named;
 
 
 import pe.edu.upc.entity.Pedido;
+import pe.edu.upc.entity.Reciclador;
 import pe.edu.upc.service.IPedidoService;
+import pe.edu.upc.service.IRecicladorService;
 
 @Named
 @RequestScoped
@@ -21,25 +23,33 @@ public class PedidoController implements Serializable {
 
 	@Inject
 	private IPedidoService pService;
+	
+	@Inject 
+	private IRecicladorService rService;
 
-
+	private Reciclador reciclador;
 	private Pedido pedido;
 	
 	
 	List<Pedido> listaPedidos;
+	List<Reciclador> listaRecicladores;
+	
 	
 	@PostConstruct
 	public void init() {
 		pedido = new Pedido();
+		reciclador=new Reciclador();
 		
 		listaPedidos = new ArrayList<Pedido>();
+		listaRecicladores=new ArrayList<Reciclador>();
 		
 		this.listPedido();
+		this.listReciclador();
 	}
 	
 	public String nuevoPedido() {
 		this.setPedido(new Pedido());
-		return "residuo.xhtml";
+		return "Pedido.xhtml";
 	}
 	
 	public void insertar() {
@@ -52,7 +62,9 @@ public class PedidoController implements Serializable {
 	public void listPedido() {
 		listaPedidos = pService.listar();
 	}	
-	
+	public void listReciclador() {
+		listaRecicladores = rService.listar();
+	}	
 	public void limpiarPedido() {
 		this.init();
 	}
@@ -78,5 +90,23 @@ public class PedidoController implements Serializable {
 	public void setListaPedidos(List<Pedido> listaPedidos) {
 		this.listaPedidos = listaPedidos;
 	}
+
+	public Reciclador getReciclador() {
+		return reciclador;
+	}
+
+	public void setReciclador(Reciclador reciclador) {
+		this.reciclador = reciclador;
+	}
+
+	public List<Reciclador> getListaRecicladores() {
+		return listaRecicladores;
+	}
+
+	public void setListaRecicladores(List<Reciclador> listaRecicladores) {
+		this.listaRecicladores = listaRecicladores;
+	}
+
+	
 	
 }

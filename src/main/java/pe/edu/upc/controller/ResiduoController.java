@@ -88,9 +88,7 @@ public class ResiduoController implements Serializable {
 	}
 
 
-	public IResiduoService getReService() {
-		return reService;
-	}
+	
 
 	public void setReService(IResiduoService reService) {
 		this.reService = reService;

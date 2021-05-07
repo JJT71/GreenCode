@@ -8,62 +8,64 @@
 <ui:composition template="master.xhtml">
 
 	<ui:define name="title">
-        .:Residuo:.
+        .:Pedido:.
     </ui:define>
 
 	<ui:define name="titleCont">
-		<span>Residuo</span>
+		<span>Pedido</span>
 	</ui:define>
 
 	<ui:define name="content">
 		<h:form>
-			<h:outputLabel for="idDocenteCurso" value="Id " styleClass="control-label" />
+			<h:outputLabel for="idPedido" value="Id " styleClass="control-label" />
 
-			<p:inputText autocomplete="off" id="idResiduo"
-				styleClass="form-control" value="#{residuoController.residuo.idResiduo}"
+			<p:inputText autocomplete="off" id="idPedido"
+				styleClass="form-control" value="#{pedidoController.pedido.idPedido}"
 				required="true" />
 				
-			<h:outputLabel for="nombre" value="Nombre "
+			<h:outputLabel for="fecha" value="Fecha "
 				styleClass="control-label" />
 
-			<p:inputText autocomplete="off" id="nombre"
+			<p:inputText autocomplete="off" id="fecha"
 				styleClass="form-control"
-				value="#{residuoController.residuo.nombre}" 
+				value="#{pedidoController.pedido.fecha}" 
 				required="true" />
 
 
-			<h:outputLabel for="peso" value="Peso"
+			<h:outputLabel for="montoTotal" value="Monto Total"
 				styleClass="control-label" />
 
-			<p:inputText autocomplete="off" id="peso" styleClass="form-control"
-				value="#{residuoController.residuo.peso}" required="true" />
+			<p:inputText autocomplete="off" id="montoTotal" styleClass="form-control"
+				value="#{pedidoController.pedido.montoTotal}" required="true" />
 
+			<h:outputLabel for="tiempoDeLlegada" value="Tiempo de Llegada"
+				styleClass="control-label" />
 
-			<p:outputLabel for="cboCategoria" value="Categoria" />
-			
-			<p:selectOneMenu id="cboCategoria" value="#{residuoController.residuo.categoria}"
-					converter="omnifaces.SelectItemsConverter">
-					<f:selectItems value="#{residuoController.listaCategorias}" var="d" 
-					 	itemLabel="#{d.nombre}" itemValue="#{d}"/>			
-			</p:selectOneMenu>
-			
+			<p:inputText autocomplete="off" id="tiempoDeLlegada" styleClass="form-control"
+				value="#{pedidoController.pedido.tiempoLlegada}" required="true" />
+				
+			<h:outputLabel for="estado" value="Estado"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="estado" styleClass="form-control"
+				value="#{pedidoController.pedido.estado}" required="true" />
+
 			<p:outputLabel for="cboReciclador" value="Reciclador" />
 			
-			<p:selectOneMenu id="cboReciclador" value="#{residuoController.residuo.reciclador}"
+			<p:selectOneMenu id="cboReciclador" value="#{pedidoController.reciclador.nombre}"
 					converter="omnifaces.SelectItemsConverter">
-					<f:selectItems value="#{residuoController.listaRecicladores}" var="r" 
+					<f:selectItems value="#{pedidoController.listaRecicladores}" var="r" 
 					 	itemLabel="#{r.nombre}" itemValue="#{r}"/>			
-			</p:selectOneMenu>				
-							
-
+			</p:selectOneMenu>
+			
 			<br />
 
 			<p:commandButton value="Grabar"
-				actionListener="#{residuoController.insertar()}"
+				actionListener="#{pedidoController.insertar()}"
 				styleClass="btn btn-primary " update="@form"
-				action="listResiduo?faces-redirect=true" />
+				action="listPedido?faces-redirect=true" />
 			<p:commandButton value="Cancelar"
-				action="listResiduo?faces-redirect=true" immediate="true"
+				action="listPedido?faces-redirect=true" immediate="true"
 				styleClass="btn btn-default" ajax="false" />
 
 			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
