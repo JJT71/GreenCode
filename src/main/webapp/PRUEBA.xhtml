@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html 	
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+		
+<ui:composition template="master.xhtml"> 
+	
+	<ui:define name="title">
+		.:Listado de Cupones:.
+	</ui:define>
+	
+	<ui:define name="titleCont">
+		<span>Cupones</span>
+	</ui:define>
+	
+	<ui:define name="content">
+		<h:form>
+		
+			<div class="row">
+				<div class="col-sm-8 text-right">
+					<div class="form-group box-main-btn">
+						<span style="display: block; height:30px;"></span>
+						<p:commandButton value="Nuevo"						
+							action="#{cuponController.nuevoCupon()}"
+							styleClass="btn btn-primary ajax=false" />
+					</div>
+				</div>
+			</div>
+			<br />
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group table-responsive box-table-class">
+						<p:dataTable id="lstCupon" var="cup"
+							value="#{cuponController.listaCupones}" paginator="true"
+							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
+							rows="10" styleClass="table table-bordered"
+							emptyMessage="No existen registros" rowIndexVar="item"
+							style="margin-bottom:0">
+
+							<p:column headerText="Id" sortBy="#{cup.idCupon}">
+								<h:outputText value="#{cup.idCupon}" />
+							</p:column>
+
+							<p:column headerText="Nombre" sortBy="#{cup.nombre}">
+								<h:outputText value="#{cup.nombre}" />
+							</p:column>
+							
+							<p:column headerText="Código" sortBy="#{cup.codigo}">
+								<h:outputText value="#{cup.codigo}" />
+							</p:column>
+							
+							<p:column headerText="Fecha de Expiración" sortBy="#{cup.fechaExpiracion}">
+								<h:outputText value="#{cup.fechaExpiracion}" />
+							</p:column>
+							
+							<p:column headerText="Operación" exportable="false">
+								<h:commandLink action="listCupon" value="Eliminar"
+									actionListener="#{cuponController.eliminar(cup)}" />
+							</p:column>
+
+						</p:dataTable>
+					</div>
+				</div>				
+			</div>									
+		</h:form>
+	</ui:define>
+	
+	<ui:define name="footerCont">
+	</ui:define>
+		
+</ui:composition> 
+</html>
+ 
