@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Transaccion:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Transaccion</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idTransaccion" value="Id " styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="idTransaccion"
+				styleClass="form-control" value="#{transaccionController.transaccion.idTransaccion}"
+				required="true" />
+				
+			<h:outputLabel for="nombre" value="Nombre "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="nombre"
+				styleClass="form-control"
+				value="#{transaccionController.transaccion.nombre}" 
+				required="true" />
+
+			<h:outputLabel value="Fecha"
+				styleClass="control-label" /> <br />
+			<p:calendar id="fecha" effect="slide" required="true"
+				pattern="dd/MM/yyyy" value="#{transaccionController.transaccion.fecha}"
+				title="Fecha" />
+			<br />
+
+			<h:outputLabel for="tipoPago" value="Tipo de Pago "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="tipoPago"
+				styleClass="form-control"
+				value="#{transaccionController.transaccion.tipoPago}" 
+				required="true" />
+				
+			<h:outputLabel for="tipoTransaccion" value="Tipo de Transaccion"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="tipoTransaccion"
+				styleClass="form-control"
+				value="#{transaccionController.transaccion.tipoTransaccion}" 
+				required="true" />
+				
+			<h:outputLabel for="monto" value="Monto"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="monto"
+				styleClass="form-control"
+				value="#{transaccionController.transaccion.monto}" 
+				required="true" />	
+				
+			
+
+			<p:outputLabel for="cboCuenta" value="Cuenta" />			
+			<p:selectOneMenu id="cboCuenta" value="#{transaccionController.transaccion.cuenta}"
+					converter="omnifaces.SelectItemsConverter">
+					<f:selectItems value="#{transaccionController.listaCuentas}" var="t" 
+					 	itemLabel="#{t.idCuenta}" itemValue="#{t}"/>			
+			</p:selectOneMenu>
+										
+							
+
+			<br />
+
+			<p:commandButton value="Grabar"
+				actionListener="#{transaccionController.insertar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listTransaccion?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listTransaccion?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

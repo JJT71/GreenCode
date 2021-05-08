@@ -22,8 +22,8 @@ public class TransaccionDaoImpl implements ITransaccionDao, Serializable {
 	
 	@Transactional
 	@Override
-	public void insertar(Transaccion transaccion) {
-		em.persist(transaccion);
+	public void insertar(Transaccion t) {
+		em.persist(t);
 		
 	}
 

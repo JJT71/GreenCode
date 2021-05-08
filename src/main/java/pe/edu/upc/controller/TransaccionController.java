@@ -9,8 +9,10 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import pe.edu.upc.entity.Cuenta;
 
 import pe.edu.upc.entity.Transaccion;
+import pe.edu.upc.service.ICuentaService;
 import pe.edu.upc.service.ITransaccionService;
 
 @Named
@@ -20,31 +22,59 @@ public class TransaccionController implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Inject
-	private ITransaccionService mService;
+	private ITransaccionService tService;
+	
+	@Inject
+	private ICuentaService cService;
 	
 	private Transaccion transaccion;
+	private Cuenta cuenta;
+	
+	
 	List<Transaccion> listaTransacciones;
+	List<Cuenta> listaCuentas;
+	
+	
 	
 	@PostConstruct
 	public void init() {
-		this.transaccion = new Transaccion();
-		this.listaTransacciones = new ArrayList<Transaccion>();
-		this.listar();
+		transaccion= new Transaccion();
+		cuenta= new Cuenta();
+		
+		listaTransacciones= new ArrayList<Transaccion>();
+		listaCuentas= new ArrayList<Cuenta>();
+		
+		this.listTransaccion();
+		this.listCuenta();
 	}
+	
 
 	public String nuevaTransaccion() { 
 		this.setTransaccion(new Transaccion());
 		return "transaccion.xhtml";
 	}
 	
+	public Transaccion getTransaccion() {
+		return transaccion;
+	}
+	public void setTransaccion(Transaccion transaccion) {
+		this.transaccion = transaccion;
+	}
+
+
 	public void insertar() {
-		mService.insertar(transaccion);
+		tService.insertar(transaccion);
 		limpiarTransaccion();
-		this.listar();
+		this.listTransaccion();
+		
 	}
 	
-	public void listar() {
-		listaTransacciones = mService.listar();
+	public void listTransaccion() {
+		listaTransacciones=tService.listar();		
+	}
+	
+	public void listCuenta() {
+		listaCuentas=cService.listar();
 	}
 	
 	public void limpiarTransaccion() {
@@ -52,29 +82,45 @@ public class TransaccionController implements Serializable {
 	}
 	
 	public void eliminar(Transaccion transaccion) {
-		mService.eliminar(transaccion.getIdTransaccion());
-		this.listar();
+		tService.eliminar(transaccion.getIdTransaccion());
+		this.listTransaccion();
 	}
-
 	
 
 	
 	//GETTERS AND SETTERS
-	public Transaccion getTransaccion() {
-		return transaccion;
+
+
+	public Cuenta getCuenta() {
+		return cuenta;
 	}
 
-	public void setTransaccion(Transaccion transaccion) {
-		this.transaccion = transaccion;
+
+	public void setCuenta(Cuenta cuenta) {
+		this.cuenta = cuenta;
 	}
+
+
+	public List<Cuenta> getListaCuentas() {
+		return listaCuentas;
+	}
+
+
+	public void setListaCuentas(List<Cuenta> listaCuentas) {
+		this.listaCuentas = listaCuentas;
+	}
+
 
 	public List<Transaccion> getListaTransacciones() {
 		return listaTransacciones;
 	}
 
+
 	public void setListaTransacciones(List<Transaccion> listaTransacciones) {
 		this.listaTransacciones = listaTransacciones;
 	}
+	
+
 	
 	
 }

@@ -15,22 +15,22 @@ public class ITransaccionServiceImpl implements ITransaccionService, Serializabl
 	private static final long serialVersionUID = 1L;
 
 	@Inject
-	private ITransaccionDao mD; 
+	private ITransaccionDao tD; 
 	
 	@Override
 	public void insertar(Transaccion transaccion) {
-		mD.insertar(transaccion);
+		tD.insertar(transaccion);
 		
 	}
 
 	@Override
 	public List<Transaccion> listar() {
-		return mD.listar();
+		return tD.listar();
 	}
 
 	@Override
 	public void eliminar(int idTransaccion) {
-		mD.eliminar(idTransaccion);
+		tD.eliminar(idTransaccion);
 		
 	}
 
