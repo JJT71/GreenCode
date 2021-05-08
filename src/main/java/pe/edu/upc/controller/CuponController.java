@@ -20,7 +20,7 @@ import pe.edu.upc.service.IRecicladorService;
 public class CuponController implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
+ //hola
 	@Inject
 	private ICuponService cService;
 	@Inject
