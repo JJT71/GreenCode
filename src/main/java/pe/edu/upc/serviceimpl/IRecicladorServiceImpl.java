@@ -27,7 +27,7 @@ public class IRecicladorServiceImpl implements IRecicladorService, Serializable{
 		return mD.listar();
 	}
 
-	@Override
+	@Override//
 	public void eliminar(int idReciclador) {
 		mD.eliminar(idReciclador);	
 	}
