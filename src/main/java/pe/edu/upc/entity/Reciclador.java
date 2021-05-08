@@ -60,7 +60,7 @@ public class Reciclador implements Serializable {
 	@Column(name="puntaje", nullable=false, columnDefinition = "DECIMAL(4,1)")
 	private Float puntaje;
 	
-	@Column(name="tipo", nullable=false, length=15) //ver esto
+	@Column(name="tipo", nullable=false, length=15) 
 	private String tipo;
 	
 	@ManyToOne

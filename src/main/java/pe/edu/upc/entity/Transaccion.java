@@ -24,17 +24,17 @@ public class Transaccion implements Serializable {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int idTransaccion;
 	
-	@Column(name="nombre", nullable=false, length=20) // esto no iria creo
+	@Column(name="nombre", nullable=false, length=20) 
 	private String nombre;
 	
 	@Column(name="fecha", nullable=false)
 	@Temporal(TemporalType.DATE)
 	private Date fecha;
 	
-	@Column(name="tipo_pago", nullable=false, length=20) //EFECTIVO - ONLINE
+	@Column(name="tipo_pago", nullable=false, length=20)
 	private String tipoPago;
 	
-	@Column(name="tipo_transaccion", nullable=false, length=20)//recargar - cobro
+	@Column(name="tipo_transaccion", nullable=false, length=20)
 	private String tipoTransaccion;
 	
 	@Column(name="monto", nullable=false, columnDefinition = "DECIMAL(3,1)")

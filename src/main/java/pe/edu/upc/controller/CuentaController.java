@@ -47,7 +47,7 @@ public class CuentaController implements Serializable {
 		
 	}
 
-	public String nuevaCuenta() { //para crear una vista de cuenta
+	public String nuevaCuenta() { 
 		this.setCuenta(new Cuenta());
 		return "cuenta.xhtml";
 	}
@@ -76,10 +76,8 @@ public class CuentaController implements Serializable {
 	}
 
 	
-	
 	//GETTERS AND SETTERS
-	
-	
+		
 	public Cuenta getCuenta() {
 		return cuenta;
 	}

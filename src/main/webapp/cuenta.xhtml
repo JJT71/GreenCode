@@ -36,14 +36,15 @@
 				value="#{cuentaController.cuenta.contraseniaCuenta}" maxlength="30"
 				required="true" />							
 				
-			<p:outputLabel for="cboRecolector" value="Recolector" />
+			<p:outputLabel for="cboRecolector" value="Recolector" styleClass="control-label" />
 			
 			<p:selectOneMenu id="cboRecolector" value="#{cuentaController.cuenta.recolector}"
 					converter="omnifaces.SelectItemsConverter">
 					<f:selectItems value="#{cuentaController.listaRecolectores}" var="c" 
 					 	itemLabel="#{c.nombre}" itemValue="#{c}"/>			
 			</p:selectOneMenu>	
-				
+			<br />
+			<br />	
 			<p:commandButton value="Grabar"
 				actionListener="#{cuentaController.insertar()}"
 				styleClass="btn btn-primary " update="@form"

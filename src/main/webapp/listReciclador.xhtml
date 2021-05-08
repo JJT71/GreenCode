@@ -1,49 +1,55 @@
 <!DOCTYPE html>
 
-<html 	
-	xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-		
-<ui:composition template="master.xhtml"> 
-	
+
+<ui:composition template="master.xhtml">
+
 	<ui:define name="title">
 		.:Listado de Recicladores:.
-	</ui:define>//
+	</ui:define>
 	
 	<ui:define name="titleCont">
 		<span>Recicladores</span>
 	</ui:define>
-	
+
 	<ui:define name="content">
 		<h:form>
-		
+
 			<div class="row">
-				<div class="col-sm-8 text-right">
+				<div class="col-sm-8 text-center">
 					<div class="form-group box-main-btn">
-						<span style="display: block; height:30px;"></span>
-						
+						<span style="display: block; height: 30px;"></span>
+
 						<p:commandButton value="Buscar" update="lstReciclador"
 							actionListener="#{recicladorController.findByName()}"
-							styleClass="btn btn-danger" ajax="true" />	
-						
-						<p:commandButton value="Nuevo"						
+							styleClass="btn btn-danger" ajax="true" />
+
+						<p:commandButton value="Nuevo"
 							action="#{recicladorController.nuevoReciclador()}"
 							styleClass="btn btn-primary ajax=false" />
-							
+
 					</div>
 				</div>
 			</div>
-            <br />
+			<br />
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="form-group table-responsive box-table-class">
+						<h:outputLabel for="name" value="Búsqueda"
+							styleClass="control-label" />
+						<p:inputText autocomplete="off" id="name"
+							styleClass="form-control"
+							value="#{recicladorController.reciclador.nombre}" maxlength="45" />
+						<br />
 						<p:dataTable id="lstReciclador" var="rec"
-							value="#{recicladorController.listaRecicladores}" paginator="true"
-							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
-							rows="10" styleClass="table table-bordered"
+							value="#{recicladorController.listaRecicladores}"
+							paginator="true" paginatorPosition="top"
+							rowsPerPageTemplate="10,20,30,40,50" rows="10"
+							styleClass="table table-bordered"
 							emptyMessage="No existen registros" rowIndexVar="item"
 							style="margin-bottom:0">
 
@@ -54,15 +60,23 @@
 							<p:column headerText="Nombre" sortBy="#{rec.nombre}">
 								<h:outputText value="#{rec.nombre}" />
 							</p:column>
-							
+
 							<p:column headerText="Apellido" sortBy="#{rec.apellido}">
 								<h:outputText value="#{rec.apellido}" />
 							</p:column>
 							
+							<p:column headerText="DNI" sortBy="#{rec.dni}">
+								<h:outputText value="#{rec.dni}" />
+							</p:column>
+							
+							<p:column headerText="Celular" sortBy="#{rec.celular}">
+								<h:outputText value="#{rec.celular}" />
+							</p:column>
+
 							<p:column headerText="Distrito" sortBy="#{rec.distrito.nombre}">
 								<h:outputText value="#{rec.distrito.nombre}" />
 							</p:column>
-								
+
 							<p:column headerText="Operación" exportable="false">
 								<h:commandLink action="listReciclador" value="Eliminar"
 									actionListener="#{recicladorController.eliminar(rec)}" />
@@ -70,20 +84,15 @@
 
 						</p:dataTable>
 					</div>
-					<h:outputLabel for="name" value="Búsqueda"
-                                styleClass="control-label" />
-                            <p:inputText autocomplete="off" id="name"
-                                styleClass="form-control"
-                                value="#{recicladorController.reciclador.nombre}" maxlength="45" />
-				</div>	
-							
-			</div>									
+
+				</div>
+
+			</div>
 		</h:form>
 	</ui:define>
-	
+
 	<ui:define name="footerCont">
 	</ui:define>
-		
-</ui:composition> 
+
+</ui:composition>
 </html>
- 

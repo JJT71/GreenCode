@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 
-<html 	
-	xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-		
-<ui:composition template="master.xhtml"> 
-	
+
+<ui:composition template="master.xhtml">
+
 	<ui:define name="title">
 		.:Listado de Residuos:.
 	</ui:define>
-	
+
 	<ui:define name="titleCont">
 		<span>Residuos</span>
 	</ui:define>
-	
+
 	<ui:define name="content">
 		<h:form>
-		
+
 			<div class="row">
 				<div class="col-sm-8 text-right">
 					<div class="form-group box-main-btn">
-						<span style="display: block; height:30px;"></span>
-						<p:commandButton value="Nuevo"						
+						<span style="display: block; height: 30px;"></span>
+						<p:commandButton value="Nuevo"
 							action="#{residuoController.nuevoResiduo()}"
 							styleClass="btn btn-primary ajax=false" />
 					</div>
@@ -44,23 +43,23 @@
 							<p:column headerText="Id" sortBy="#{re.idResiduo}">
 								<h:outputText value="#{re.idResiduo}" />
 							</p:column>
-							
-							<p:column headerText="Reciclador">
-								<h:outputText value="#{re.reciclador.nombre}" />
-							</p:column>
-							
-							<p:column headerText="Categoria">
-								<h:outputText value="#{re.categoria.nombre}" />
-							</p:column>
-							
+
 							<p:column headerText="Nombre" sortBy="#{re.nombre}">
 								<h:outputText value="#{re.nombre}" />
 							</p:column>
-							
-							<p:column headerText="Peso">
+
+							<p:column headerText="Categoria">
+								<h:outputText value="#{re.categoria.nombre}" />
+							</p:column>
+
+							<p:column headerText="Reciclador">
+								<h:outputText value="#{re.reciclador.nombre}" />
+							</p:column>
+
+							<p:column headerText="Peso(Kg)">
 								<h:outputText value="#{re.peso}" />
 							</p:column>
-																		
+
 							<p:column headerText="Operación" exportable="false">
 								<h:commandLink action="listResiduo" value="Eliminar"
 									actionListener="#{residuoController.eliminar(re)}" />
@@ -68,14 +67,13 @@
 
 						</p:dataTable>
 					</div>
-				</div>				
-			</div>									
+				</div>
+			</div>
 		</h:form>
 	</ui:define>
-	
+
 	<ui:define name="footerCont">
 	</ui:define>
-		
-</ui:composition> 
+
+</ui:composition>
 </html>
- 

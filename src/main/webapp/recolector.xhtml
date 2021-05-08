@@ -95,7 +95,8 @@
 			<br />
 			
 			<h:outputLabel value="Fecha de Nacimiento"
-				styleClass="control-label" /> <br />
+				styleClass="control-label" /> 
+				<br />
 			<p:calendar id="fecha" effect="slide" required="true"
 				pattern="dd/MM/yyyy" value="#{recolectorController.recolector.fechaNacimiento}"
 				title="Fecha de Nacimiento" />
@@ -119,7 +120,7 @@
 				required="true" />
 			<br />
 
-	<h:outputLabel for="ganancia" value="Ganancia"
+			<h:outputLabel for="ganancia" value="Ganancia"
 				styleClass="control-label" />
 
 			<p:inputText autocomplete="off" id="ganancia"
@@ -128,15 +129,14 @@
 				required="true" />
 			<br />
 
-			<p:outputLabel for="cboDistrito" value="Distrito" />
-			
+			<p:outputLabel for="cboDistrito" value="Distrito"  styleClass="control-label"/>
 			<p:selectOneMenu id="cboDistrito" value="#{recolectorController.recolector.distrito}"
 				converter="omnifaces.SelectItemsConverter">
 				<f:selectItems value="#{recolectorController.listaDistritos}"  var="d" 
 					itemLabel="#{d.nombre}" itemValue="#{d}" />
 			</p:selectOneMenu>
 			<br />
-			
+			<br />
 			<p:commandButton value="Grabar"
 				actionListener="#{recolectorController.insertar()}"
 				styleClass="btn btn-primary " update="@form"

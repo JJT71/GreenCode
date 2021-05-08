@@ -86,11 +86,6 @@ public class TransaccionController implements Serializable {
 		this.listTransaccion();
 	}
 	
-
-	
-	//GETTERS AND SETTERS
-
-
 	public Cuenta getCuenta() {
 		return cuenta;
 	}

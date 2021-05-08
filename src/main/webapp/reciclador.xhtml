@@ -60,7 +60,7 @@
 			<h:outputLabel for="dni" value="DNI"
 				styleClass="control-label" />
 
-			<p:inputText autocomplete="off" id="dni"
+			<p:inputText autocomplete="off" id="dni" 
 				styleClass="form-control"
 				value="#{recicladorController.reciclador.dni}" maxlength="8"
 				required="true" />
@@ -127,7 +127,7 @@
 				required="true" />
 			<br />
 
-			<p:outputLabel for="cboDistrito" value="Distrito" />
+			<p:outputLabel for="cboDistrito" value="Distrito" styleClass="control-label" />
 			
 			<p:selectOneMenu id="cboDistrito" value="#{recicladorController.reciclador.distrito}"
 				converter="omnifaces.SelectItemsConverter">
@@ -135,7 +135,7 @@
 					itemLabel="#{d.nombre}" itemValue="#{d}" />
 			</p:selectOneMenu>
 			<br />
-			
+			<br />
 			<p:commandButton value="Grabar"
 				actionListener="#{recicladorController.insertar()}"
 				styleClass="btn btn-primary " update="@form"

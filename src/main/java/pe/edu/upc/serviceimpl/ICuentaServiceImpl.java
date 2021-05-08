@@ -12,7 +12,6 @@ import pe.edu.upc.service.ICuentaService;
 
 public class ICuentaServiceImpl implements ICuentaService, Serializable {
 
-
 	private static final long serialVersionUID = 1L;
 
 	@Inject
@@ -20,8 +19,7 @@ public class ICuentaServiceImpl implements ICuentaService, Serializable {
 	
 	@Override
 	public void insertar(Cuenta cuenta) {
-		cD.insertar(cuenta);
-		
+		cD.insertar(cuenta);	
 	}
 
 	@Override

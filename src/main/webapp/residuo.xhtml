@@ -32,14 +32,14 @@
 				required="true" />
 
 
-			<h:outputLabel for="peso" value="Peso"
+			<h:outputLabel for="peso" value="Peso(Kg)"
 				styleClass="control-label" />
 
 			<p:inputText autocomplete="off" id="peso" styleClass="form-control"
 				value="#{residuoController.residuo.peso}" required="true" />
 
-
-			<p:outputLabel for="cboCategoria" value="Categoria" />
+			<br />
+			<p:outputLabel for="cboCategoria" value="Categoria" styleClass="control-label"/>
 			
 			<p:selectOneMenu id="cboCategoria" value="#{residuoController.residuo.categoria}"
 					converter="omnifaces.SelectItemsConverter">
@@ -47,7 +47,7 @@
 					 	itemLabel="#{d.nombre}" itemValue="#{d}"/>			
 			</p:selectOneMenu>
 			
-			<p:outputLabel for="cboReciclador" value="Reciclador" />
+			<p:outputLabel for="cboReciclador" value="Reciclador" styleClass="control-label"/>
 			
 			<p:selectOneMenu id="cboReciclador" value="#{residuoController.residuo.reciclador}"
 					converter="omnifaces.SelectItemsConverter">
@@ -55,7 +55,7 @@
 					 	itemLabel="#{r.nombre}" itemValue="#{r}"/>			
 			</p:selectOneMenu>				
 							
-
+			<br />
 			<br />
 
 			<p:commandButton value="Grabar"

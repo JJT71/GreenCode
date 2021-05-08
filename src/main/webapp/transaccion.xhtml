@@ -64,11 +64,9 @@
 			<p:selectOneMenu id="cboCuenta" value="#{transaccionController.transaccion.cuenta}"
 					converter="omnifaces.SelectItemsConverter">
 					<f:selectItems value="#{transaccionController.listaCuentas}" var="t" 
-					 	itemLabel="#{t.idCuenta}" itemValue="#{t}"/>			
+					 	itemLabel="#{t.numeroCuenta}" itemValue="#{t}"/>			
 			</p:selectOneMenu>
 										
-							
-
 			<br />
 
 			<p:commandButton value="Grabar"

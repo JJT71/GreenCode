@@ -31,7 +31,7 @@ public class CuentaDaoImpl implements ICuentaDao, Serializable {
 	@Override
 	public List<Cuenta> listar() {
 		List<Cuenta> lista= new ArrayList<Cuenta>();
-		Query q=em.createQuery("Select c from Categoria c");
+		Query q=em.createQuery("Select c from Cuenta c");
 		lista=(List<Cuenta>) q.getResultList();
 		return lista;
 	}

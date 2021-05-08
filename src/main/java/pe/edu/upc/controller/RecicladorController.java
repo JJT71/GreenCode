@@ -63,7 +63,7 @@ private static final long serialVersionUID = 1L;
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-	}//
+	}
 	
 	public void listReciclador() {
 		listaRecicladores = rService.listar();
@@ -79,7 +79,7 @@ private static final long serialVersionUID = 1L;
 	
 	public void eliminar(Reciclador reciclador) {
 		rService.eliminar(reciclador.getIdReciclador());
-		this.listar();
+		this.listReciclador();
 	}
 	//GETTERS AND SETTERS
 

@@ -24,7 +24,7 @@ public class Residuo implements Serializable {
 	@Column(name="nombre", nullable=false, length=30)
 	private String nombre;
 	
-	@Column(name="peso", nullable=true, columnDefinition = "DECIMAL(3,1)")
+	@Column(name="peso", nullable=true, columnDefinition = "DECIMAL(4,1)")
 	private Float peso;
 	
 	@ManyToOne

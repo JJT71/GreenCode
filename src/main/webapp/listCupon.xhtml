@@ -49,6 +49,10 @@
 								<h:outputText value="#{cup.nombre}" />
 							</p:column>
 							
+							<p:column headerText="Reciclador" sortBy="#{cup.reciclador.nombre}">
+								<h:outputText value="#{cup.reciclador.nombre}" />
+							</p:column>
+							
 							<p:column headerText="Código" sortBy="#{cup.codigo}">
 								<h:outputText value="#{cup.codigo}" />
 							</p:column>
