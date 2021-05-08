@@ -16,22 +16,22 @@ public class ICuentaServiceImpl implements ICuentaService, Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Inject
-	private ICuentaDao mD; 
+	private ICuentaDao cD; 
 	
 	@Override
 	public void insertar(Cuenta cuenta) {
-		mD.insertar(cuenta);
+		cD.insertar(cuenta);
 		
 	}
 
 	@Override
 	public List<Cuenta> listar() {
-		return mD.listar();
+		return cD.listar();
 	}
 
 	@Override
 	public void eliminar(int idCuenta) {
-		mD.eliminar(idCuenta);
+		cD.eliminar(idCuenta);
 		
 	}
 

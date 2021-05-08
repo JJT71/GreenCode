@@ -10,7 +10,9 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import pe.edu.upc.entity.Cuenta;
+import pe.edu.upc.entity.Recolector;
 import pe.edu.upc.service.ICuentaService;
+import pe.edu.upc.service.IRecolectorService;
 
 @Named
 @RequestScoped
@@ -19,16 +21,30 @@ public class CuentaController implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Inject
-	private ICuentaService mService;
+	private ICuentaService cService;
+	
+	@Inject
+	private IRecolectorService rService;
 	
 	private Cuenta cuenta;
+	private Recolector recolector;
+	
 	List<Cuenta> listaCuentas;
+	List<Recolector> listaRecolectores;
 	
 	@PostConstruct
 	public void init() {
-		this.cuenta = new Cuenta();
-		this.listaCuentas = new ArrayList<Cuenta>();
-		this.listar();
+		
+		cuenta = new Cuenta();
+		recolector = new Recolector();
+		
+		listaCuentas= new ArrayList<Cuenta>();
+		listaRecolectores= new ArrayList<Recolector>();
+		
+		this.listCuenta();
+		this.listRecolector();
+		
+		
 	}
 
 	public String nuevaCuenta() { //para crear una vista de cuenta
@@ -37,13 +53,17 @@ public class CuentaController implements Serializable {
 	}
 	
 	public void insertar() {
-		mService.insertar(cuenta);
+		cService.insertar(cuenta);
 		limpiarCuenta();
-		this.listar();
+		this.listCuenta();
 	}
 	
-	public void listar() {
-		listaCuentas = mService.listar();
+	public void listCuenta() {
+		listaCuentas = cService.listar();
+	}
+	
+	public void listRecolector() {
+		listaRecolectores = rService.listar();
 	}
 	
 	public void limpiarCuenta() {
@@ -51,18 +71,29 @@ public class CuentaController implements Serializable {
 	}
 	
 	public void eliminar(Cuenta cuenta) {
-		mService.eliminar(cuenta.getIdCuenta());
-		this.listar();
+		cService.eliminar(cuenta.getIdCuenta());
+		this.listCuenta();
 	}
 
 	
+	
 	//GETTERS AND SETTERS
+	
+	
 	public Cuenta getCuenta() {
 		return cuenta;
 	}
 
 	public void setCuenta(Cuenta cuenta) {
 		this.cuenta = cuenta;
+	}
+
+	public Recolector getRecolector() {
+		return recolector;
+	}
+
+	public void setRecolector(Recolector recolector) {
+		this.recolector = recolector;
 	}
 
 	public List<Cuenta> getListaCuentas() {
@@ -72,9 +103,15 @@ public class CuentaController implements Serializable {
 	public void setListaCuentas(List<Cuenta> listaCuentas) {
 		this.listaCuentas = listaCuentas;
 	}
-	
-	
-	
+
+	public List<Recolector> getListaRecolectores() {
+		return listaRecolectores;
+	}
+
+	public void setListaRecolectores(List<Recolector> listaRecolectores) {
+		this.listaRecolectores = listaRecolectores;
+	}
+
 	
 	
 	

@@ -34,29 +34,33 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="form-group table-responsive box-table-class">
-						<p:dataTable id="lstCuenta" var="cue"
+						<p:dataTable id="lstCuenta" var="c"
 							value="#{cuentaController.listaCuentas}" paginator="true"
 							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
 							rows="10" styleClass="table table-bordered"
 							emptyMessage="No existen registros" rowIndexVar="item"
 							style="margin-bottom:0">
 
-							<p:column headerText="Id" sortBy="#{cue.idCuenta}">
-								<h:outputText value="#{cue.idCuenta}" />
-							</p:column>
-
-							<p:column headerText="Número de Cuenta" sortBy="#{cue.numeroCuenta}">
-								<h:outputText value="#{cue.numeroCuenta}" />
+							<p:column headerText="Id" sortBy="#{c.idCuenta}">
+								<h:outputText value="#{c.idCuenta}" />
 							</p:column>
 							
-							<p:column headerText="Contraseña" sortBy="#{cue.contraseniaCuenta}">
-								<h:outputText value="#{cue.contraseniaCuenta}" />
+							<p:column headerText="Id de Recolector" >
+								<h:outputText value="#{c.recolector.idRecolector}" />
+							</p:column>
+
+							<p:column headerText="Número de Cuenta" sortBy="#{c.numeroCuenta}">
+								<h:outputText value="#{c.numeroCuenta}" />
+							</p:column>
+							
+							<p:column headerText="Contraseña">
+								<h:outputText value="#{c.contraseniaCuenta}" />
 							</p:column>							
 							
 							
 							<p:column headerText="Operación" exportable="false">
 								<h:commandLink action="listCuenta" value="Eliminar"
-									actionListener="#{cuentaController.eliminar(cue)}" />
+									actionListener="#{cuentaController.eliminar(c)}" />
 							</p:column>
 
 						</p:dataTable>
