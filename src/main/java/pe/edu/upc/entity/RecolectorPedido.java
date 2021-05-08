@@ -21,8 +21,8 @@ public class RecolectorPedido implements Serializable {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int idRecolectorPedido;
 	
-	@Column(name="cantidad", nullable=false, columnDefinition = "DECIMAL(3,1)")
-	private Float cantidad;
+	@Column(name="cantidad", nullable=false, length=3)
+	private int cantidad;
 	
 	@Column(name="precio", nullable=false, columnDefinition = "DECIMAL(3,1)")
 	private Float precio;
@@ -40,7 +40,7 @@ public class RecolectorPedido implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public RecolectorPedido(int idRecolectorPedido, Float cantidad, Float precio, Recolector recolector,
+	public RecolectorPedido(int idRecolectorPedido, int cantidad, Float precio, Recolector recolector,
 			Pedido pedido) {
 		super();
 		this.idRecolectorPedido = idRecolectorPedido;
@@ -58,11 +58,11 @@ public class RecolectorPedido implements Serializable {
 		this.idRecolectorPedido = idRecolectorPedido;
 	}
 
-	public Float getCantidad() {
+	public int getCantidad() {
 		return cantidad;
 	}
 
-	public void setCantidad(Float cantidad) {
+	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
 	}
 

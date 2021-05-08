@@ -56,6 +56,7 @@ private static final long serialVersionUID = 1L;
 		listaRecolectores = rService.listar();
 	}
 	
+	
 	public void listarD() {
 		listaDistritos = dService.listar();
 	}

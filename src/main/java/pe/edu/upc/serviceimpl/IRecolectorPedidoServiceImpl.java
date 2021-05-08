@@ -6,8 +6,11 @@ import java.util.List;
 import javax.inject.Inject;
 
 import pe.edu.upc.dao.IRecolectorPedidoDao;
+import pe.edu.upc.dao.IRecicladorDao;
 import pe.edu.upc.entity.RecolectorPedido;
+import pe.edu.upc.entity.Reciclador;
 import pe.edu.upc.service.IRecolectorPedidoService;
+
 
 public class IRecolectorPedidoServiceImpl implements IRecolectorPedidoService, Serializable{
 
@@ -32,5 +35,9 @@ public class IRecolectorPedidoServiceImpl implements IRecolectorPedidoService, S
 		mD.eliminar(idRecolectorPedido);	
 	}
 
+	@Override
+	public List<Reciclador> findByNameReciclador(Reciclador r) {
+		return mD.findByNameReciclador(r);
+	}
 
 }

@@ -11,6 +11,7 @@ import javax.transaction.Transactional;
 
 import pe.edu.upc.dao.IRecolectorPedidoDao;
 import pe.edu.upc.entity.RecolectorPedido;
+import pe.edu.upc.entity.Reciclador;
 
 public class RecolectorPedidoDaoImpl implements IRecolectorPedidoDao, Serializable {
 
@@ -41,6 +42,16 @@ public class RecolectorPedidoDaoImpl implements IRecolectorPedidoDao, Serializab
 		RecolectorPedido r= new RecolectorPedido();
 		r= em.getReference(RecolectorPedido.class, idRecolectorPedido);
 		em.remove(r);
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Reciclador> findByNameReciclador(Reciclador e) {
+		List<Reciclador> lista= new ArrayList<Reciclador>();
+		Query q=em.createQuery("from Reciclador e where e.nombre like ?1");
+		q.setParameter(1, '%'+e.getNombre()+'%');
+		lista = (List<Reciclador>)q.getResultList();
+		return lista;
 	}
 
 }
