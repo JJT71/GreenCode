@@ -24,6 +24,11 @@
 				<div class="col-sm-8 text-right">
 					<div class="form-group box-main-btn">
 						<span style="display: block; height:30px;"></span>
+						
+						<p:commandButton value="Buscar" update="lstReciclador"
+							actionListener="#{recicladorController.findByName()}"
+							styleClass="btn btn-danger" ajax="true" />	
+						
 						<p:commandButton value="Nuevo"						
 							action="#{recicladorController.nuevoReciclador()}"
 							styleClass="btn btn-primary ajax=false" />
@@ -35,7 +40,7 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="form-group table-responsive box-table-class">
-						<p:dataTable id="lstCurso" var="rec"
+						<p:dataTable id="lstReciclador" var="rec"
 							value="#{recicladorController.listaRecicladores}" paginator="true"
 							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
 							rows="10" styleClass="table table-bordered"
@@ -65,7 +70,13 @@
 
 						</p:dataTable>
 					</div>
-				</div>				
+					<h:outputLabel for="name" value="Búsqueda"
+                                styleClass="control-label" />
+                            <p:inputText autocomplete="off" id="name"
+                                styleClass="form-control"
+                                value="#{recicladorController.reciclador.nombre}" maxlength="45" />
+				</div>	
+							
 			</div>									
 		</h:form>
 	</ui:define>

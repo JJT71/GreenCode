@@ -54,6 +54,18 @@ private static final long serialVersionUID = 1L;
 		this.listar();
 	}
 	
+	public void findByName() {
+		try {
+			if (reciclador.getNombre().isEmpty()) {
+				this.listar();
+			} else {
+				listaRecicladores = this.rService.finByReciclador(this.getReciclador());
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
 	public void listReciclador() {
 		listaRecicladores = rService.listar();
 	}
