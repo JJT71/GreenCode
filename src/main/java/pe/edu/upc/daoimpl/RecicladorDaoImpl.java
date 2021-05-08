@@ -42,5 +42,18 @@ public class RecicladorDaoImpl implements IRecicladorDao, Serializable {
 		r= em.getReference(Reciclador.class, idReciclador);
 		em.remove(r);
 	}
+	
+	@SuppressWarnings("unchecked")//
+	public List<Reciclador> findByNameReciclador(Reciclador r) {
+		List<Reciclador> lista = new ArrayList<Reciclador>();
+		try {
+			Query q = em.createQuery("from Reciclador r where r.nombre like ?1");
+			q.setParameter(1, "%" +r.getNombre() + "%");
+			lista = (List<Reciclador>) q.getResultList();
+		} catch (Exception e) {
+			System.out.println("Error al buscar reciclador");
+		}
+		return lista;
+	}
 
 }

@@ -18,7 +18,6 @@ import pe.edu.upc.service.IRecicladorService;
 @RequestScoped
 public class RecicladorController implements Serializable{
 private static final long serialVersionUID = 1L;
-	
 	@Inject
 	private IDistritoService dService;
 	
@@ -53,6 +52,18 @@ private static final long serialVersionUID = 1L;
 		limpiarReciclador();
 		this.listar();
 	}
+	
+	public void findByName() {
+		try {
+			if (reciclador.getNombre().isEmpty()) {
+				this.listar();
+			} else {
+				listaRecicladores = this.rService.finByReciclador(this.getReciclador());
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}//
 	
 	public void listReciclador() {
 		listaRecicladores = rService.listar();
