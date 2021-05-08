@@ -6,7 +6,6 @@ import java.util.List;
 import javax.inject.Inject;
 
 import pe.edu.upc.dao.IRecolectorPedidoDao;
-import pe.edu.upc.dao.IRecicladorDao;
 import pe.edu.upc.entity.RecolectorPedido;
 import pe.edu.upc.entity.Reciclador;
 import pe.edu.upc.service.IRecolectorPedidoService;

@@ -70,7 +70,11 @@
 								<h:commandLink action="listPedido" value="Eliminar"
 									actionListener="#{pedidoController.eliminar(pe)}" />
 							</p:column>
+							<p:column headerText="Ver Detalle" exportable="false">
+								<li id="sidebar-1"><a href="recolectorPedido.xhtml">Ver Detalle</a></li>
+							</p:column>
 
+							
 						</p:dataTable>
 					</div>
 				</div>				

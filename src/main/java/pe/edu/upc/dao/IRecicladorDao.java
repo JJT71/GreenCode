@@ -9,5 +9,5 @@ public interface IRecicladorDao {
 	public void insertar(Reciclador reciclador);
 	public List<Reciclador> listar();
 	public void eliminar(int idReciclador);
-	public List<Reciclador> findByNameReciclador(Reciclador r); //
+	public List<Reciclador> findByNameReciclador(Reciclador r); 
 }
